@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 //TeleOp Page
     //TeleOp Text
     <TextView
@@ -13,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Power Cell Scoring"
+        android:text="Cargo Scoring"
         android:textColor="#000000"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
@@ -21,38 +19,40 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 //lower button section
     <Button
-        android:id="@+id/PowerCellLowerMinus"
+        android:id="@+id/CargoLowerMinus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
         android:text="-"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/PowerCellOuterMinus"
+        android:onClick="TeleOpLowerDe"
+        app:layout_constraintStart_toEndOf="@+id/CargoLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/PowerCellLowerPlus"
+        android:id="@+id/CargoLowerPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:layout_marginStart="36dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:text="+"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/PowerCellOuterPlus"
-        app:layout_constraintStart_toEndOf="@+id/PowerCellLowerMinus"
+        android:onClick="TeleOpLowerIn"
+        app:layout_constraintEnd_toStartOf="@+id/CargoLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="175dp"
+        android:layout_marginEnd="100dp"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Lower"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/CargoLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 //upper button section
 
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Top"
+        android:text="Upper"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
@@ -70,31 +70,33 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/PowerCellOuterMinus"
+        android:id="@+id/CargoOuterMinus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
         android:text="-"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/PowerCellLowerMinus" />
+        app:layout_constraintStart_toEndOf="@+id/CargoUpperTicker"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/PowerCellOuterPlus"
+        android:id="@+id/CargoOuterPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
         android:text="+"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/PowerCellLowerPlus"
-        tools:layout_editor_absoluteX="357dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintEnd_toStartOf="@id/CargoUpperTicker"
+       />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="212dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Color Sensor"
         android:textColor="#000000"
@@ -119,17 +121,6 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="What stage did they get to?"
-        android:textColor="#000000"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/textView13"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
     <CheckBox
         android:id="@+id/ColorCheckbox"
         android:layout_width="wrap_content"
@@ -140,28 +131,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
-
-    <Button
-        android:id="@+id/StageLevelMinus"
-        android:layout_width="54dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="20dp"
-        android:text="-"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView8"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
-
-    <Button
-        android:id="@+id/StageLevelPlus"
-        android:layout_width="54dp"
-        android:layout_height="59dp"
-        android:layout_marginStart="36dp"
-        android:fontFamily="sans-serif"
-        android:text="+"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/StageLevelMinus"
-        app:layout_constraintTop_toTopOf="@+id/StageLevelMinus" />
 
     <Button
         android:id="@+id/EndgameButton"
@@ -192,62 +161,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/StageLevelTicker"
+        android:id="@+id/CargoLowerTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="120dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="0"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/StageLevelPlus"
-        app:layout_constraintStart_toEndOf="@+id/StageLevelMinus"
-        app:layout_constraintTop_toTopOf="@+id/StageLevelMinus" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/CargoLowerPlus" />
 
     <TextView
-        android:id="@+id/PowerCellLowerTicker"
+        android:id="@+id/CargoUpperTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="90dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="0"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/PowerCellLowerPlus"
-        app:layout_constraintStart_toEndOf="@+id/PowerCellLowerMinus"
-        app:layout_constraintTop_toTopOf="@+id/PowerCellLowerPlus" />
-
-    <TextView
-        android:id="@+id/PowerCellOuterTicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:text="0"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/PowerCellOuterPlus"
-        app:layout_constraintEnd_toStartOf="@+id/PowerCellOuterPlus"
-        app:layout_constraintStart_toEndOf="@+id/PowerCellOuterMinus"
-        app:layout_constraintTop_toTopOf="@+id/PowerCellOuterPlus" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-condensed-light"
         android:text="Can they go through the trench?"
         android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -257,14 +208,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Other"
+        android:text="Climbing"
         android:textColor="#000000"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-    <CheckBox
+    <Spinner
+        android:spinnerMode="dropdown"
         android:id="@+id/TrenchCheckbox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
