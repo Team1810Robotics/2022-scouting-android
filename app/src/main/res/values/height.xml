@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="height">
+        <item>Did Not Climb</item>
+        <item>Low</item>
+        <item>Mid</item>
+        <item>High</item>
+        <item>Transversal</item>
+    </string-array>
+</resources>
