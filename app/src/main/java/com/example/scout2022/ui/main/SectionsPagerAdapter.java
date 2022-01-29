@@ -40,16 +40,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new Page1();
+                fragment = new Page1(); //Start Page
                 break;
             case 1:
-                fragment = new Page2();
+                fragment = new Page2(); //Auto page
                 break;
             case 2:
-                fragment = new Page3();
+                fragment = new Page3(); //TeleOp Page
                 break;
             case 3:
-                fragment = new Page4();
+                fragment = new Page4(); //Final page
                 break;
         }
         return fragment;
