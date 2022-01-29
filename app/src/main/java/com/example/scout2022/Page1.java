@@ -31,6 +31,7 @@ public class Page1 extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_page1, container, false);
     }
+    /*
     public void decrementAutoBallsLower() {
         decrease(R.id.AutoPowerCellLowerTicker, BundleValues.AUTO_POWERCELL_LOWER, 0);
     }
@@ -88,5 +89,5 @@ public class Page1 extends Fragment {
     public void TeleOpLowerDe() {
 
     }
-
+*/
 }
