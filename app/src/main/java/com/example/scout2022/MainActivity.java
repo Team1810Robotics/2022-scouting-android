@@ -12,15 +12,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.scout2022.ui.main.SectionsPagerAdapter;
 import com.example.scout2022.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 

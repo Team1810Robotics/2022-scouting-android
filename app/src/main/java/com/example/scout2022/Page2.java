@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 /**
  * creates page
  */
+// auto page
 public class Page2 extends Fragment {
     @Nullable
     @Override
