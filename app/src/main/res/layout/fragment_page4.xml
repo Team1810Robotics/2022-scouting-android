@@ -14,13 +14,13 @@
         android:text="@string/notes"
         android:textColor="#9575CD"
         android:textSize="23sp"
-        app:layout_constraintBottom_toTopOf="@+id/editText"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintBottom_toTopOf="@+id/FinalNotes"
+        app:layout_constraintEnd_toEndOf="@+id/FinalNotes"
         app:layout_constraintHorizontal_bias="0.03"
-        app:layout_constraintStart_toStartOf="@+id/editText" />
+        app:layout_constraintStart_toStartOf="@+id/FinalNotes" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/FinalNotes"
         android:layout_width="379dp"
         android:layout_height="413dp"
         android:hint="@string/type_here"
@@ -32,7 +32,7 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <CheckBox
-        android:id="@+id/checkBox2"
+        android:id="@+id/FinalWinCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/FinalNotes"
         app:layout_constraintVertical_bias="0.179" />
 
 

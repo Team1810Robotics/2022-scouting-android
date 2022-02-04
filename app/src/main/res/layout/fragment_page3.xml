@@ -20,7 +20,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 //lower button section
     <Button
-        android:id="@+id/CargoLowerMinus"
+        android:id="@+id/TeleOpLowerMinus"
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginTop="10dp"
@@ -28,11 +28,11 @@
         android:text="-"
         android:textSize="30sp"
         android:onClick="TeleOpLowerDe"
-        app:layout_constraintStart_toEndOf="@+id/CargoLowerTicker"
+        app:layout_constraintStart_toEndOf="@+id/TeleOpLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/CargoLowerPlus"
+        android:id="@+id/TeleOpLowerPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginTop="10dp"
@@ -40,7 +40,7 @@
         android:text="+"
         android:textSize="24sp"
         android:onClick="TeleOpLowerIn"
-        app:layout_constraintEnd_toStartOf="@+id/CargoLowerTicker"
+        app:layout_constraintEnd_toStartOf="@+id/TeleOpLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -53,7 +53,7 @@
         android:text="Lower"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@id/CargoLowerTicker"
+        app:layout_constraintEnd_toStartOf="@id/TeleOpLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 //upper button section
 
@@ -71,18 +71,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/CargoOuterMinus"
+        android:id="@+id/TeleOpUpperMinus"
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="80dp"
         android:text="-"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/CargoUpperTicker"
+        app:layout_constraintStart_toEndOf="@+id/TeleOpUpperTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/CargoOuterPlus"
+        android:id="@+id/TeleOpUpperPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginTop="80dp"
@@ -90,7 +90,7 @@
         android:text="+"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@id/CargoUpperTicker"
+        app:layout_constraintEnd_toStartOf="@id/TeleOpUpperTicker"
        />
 
     <TextView
@@ -123,7 +123,7 @@
 
 
     <CheckBox
-        android:id="@+id/ColorCheckbox"
+        android:id="@+id/TeleOpColorCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -132,19 +132,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7" />
-
-    <Button
-        android:id="@+id/EndgameButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="710dp"
-        android:fontFamily="sans-serif-condensed-light"
-        android:onClick="TeleopActivityChange"
-        android:text="Endgame"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
         android:id="@+id/textView9"
@@ -162,7 +149,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/CargoLowerTicker"
+        android:id="@+id/TeleOpLowerTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -173,10 +160,10 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/CargoLowerPlus" />
+        app:layout_constraintTop_toTopOf="@+id/TeleOpLowerPlus" />
 
     <TextView
-        android:id="@+id/CargoUpperTicker"
+        android:id="@+id/TeleOpUpperTicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
@@ -218,7 +205,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Spinner
-        android:id="@+id/TrenchCheckbox"
+        android:id="@+id/TeleOpTrenchCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
