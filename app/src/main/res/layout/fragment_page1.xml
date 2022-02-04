@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.PlaceholderFragment">
-//Start Page
+//basic Page
     <TextView
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
         tools:layout_constraintTop_creator="1" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/BasicTeamNum"
         android:layout_width="166dp"
         android:layout_height="48dp"
         android:hint="@string/team_number"
@@ -35,20 +35,21 @@
         app:layout_constraintVertical_bias="0.056" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/BasicRoundNum"
         android:layout_width="166dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="208dp"
         android:hint="Round"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="@+id/BasicTeamNum"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintStart_toStartOf="@+id/BasicTeamNum"
+        app:layout_constraintTop_toBottomOf="@+id/BasicTeamNum"
         app:layout_constraintVertical_bias="0.026" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/BasicColorDropdown"
         android:layout_width="227dp"
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
