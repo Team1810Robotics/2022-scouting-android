@@ -15,8 +15,8 @@ public class BundleUtils {
         final DataModel data = new DataModel();
         data.setMatchID( bundle.getInt( BundleValues.BasicRoundNum.toString(), 0 ) );
         data.setTeamID( TeamNumbers.fromValue(bundle.getString( (BundleValues.BasicTeamNum.toString()), TeamNumbers.TEAM_245.toString() ) ) );
-        data.setAllianceColor( AllianceColor.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(),
-                AllianceColor.BLUE.toString() ) ) );
+        data.setAllianceColor( TeamColors.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(),
+                TeamColors.BLUE.toString() ) ) );
         //data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
        // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
        // data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
@@ -56,7 +56,7 @@ public class BundleUtils {
                     b.putInt( val.toString(), 0 );
                     break;
                 case BasicColorDropdown:
-                    b.putString( val.toString(), AllianceColor.BLUE.toString() );
+                    b.putString( val.toString(), TeamColors.BLUE.toString() );
                     break;
                 case TeleOpHeightDropdown:
                     b.putString( val.toString(), BarGrabPosition.NONE.getLabel() );

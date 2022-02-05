@@ -6,19 +6,19 @@ package com.example.scout2022;
  * @author Michael Sheehan
  *
  */
-public enum AllianceColor {
+public enum TeamColors {
     RED( 1, "Red" ), BLUE( 0, "Blue" );
 
     private final String label;
     private final int index;
 
-    AllianceColor( final int index, final String label ) {
+    TeamColors(final int index, final String label ) {
         this.label = label;
         this.index = index;
     }
 
-    public static AllianceColor forIndex( final int indexIn ) {
-        for ( AllianceColor val : AllianceColor.values() ) {
+    public static TeamColors forIndex(final int indexIn ) {
+        for ( TeamColors val : TeamColors.values() ) {
             if ( val.index == indexIn ) {
                 return val;
             }
@@ -27,8 +27,8 @@ public enum AllianceColor {
         return null;
     }
 
-    public static AllianceColor forLabel( final String valIn ) {
-        for ( AllianceColor val : AllianceColor.values() ) {
+    public static TeamColors forLabel(final String valIn ) {
+        for ( TeamColors val : TeamColors.values() ) {
             if ( val.label.equalsIgnoreCase(valIn) ) {
                 return val;
             }
@@ -46,3 +46,4 @@ public enum AllianceColor {
         return index;
     }
 }
+

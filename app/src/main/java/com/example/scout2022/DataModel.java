@@ -1,6 +1,6 @@
 package com.example.scout2022;
 
-public class GettersAndSetters extends BaseDto {
+public class DataModel extends BaseDto {
     // Data for startup screen
     /**
      * The match number.
@@ -16,7 +16,7 @@ public class GettersAndSetters extends BaseDto {
      */
 
     private TeamNumbers teamID;
-    private AllianceColor allianceColor;
+    private TeamColors allianceColor;
     private int startingBalls;
     private String nameOfScouter;
     private boolean autoPassedLine;
@@ -49,11 +49,11 @@ public class GettersAndSetters extends BaseDto {
         this.teamID = teamID;
     }
 
-    public AllianceColor getAllianceColor() {
+    public TeamColors getAllianceColor() {
         return allianceColor;
     }
 
-    public void setAllianceColor( final AllianceColor allianceColor ) {
+    public void setAllianceColor( final TeamColors allianceColor ) {
         this.allianceColor = allianceColor;
     }
 

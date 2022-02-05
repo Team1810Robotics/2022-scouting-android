@@ -9,10 +9,7 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.example.scout2022.ui.main.SectionsPagerAdapter;
 import com.example.scout2022.databinding.ActivityMainBinding;
@@ -45,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
+
+
+
 //Create and save a new file
     public void FinalSave() {
         Bundle bundle = getIntent().getExtras();
@@ -56,12 +55,12 @@ public class MainActivity extends AppCompatActivity {
         final DataModel data = new DataModel();
 
         //setting final bundle value for bar grab position
-        bundle.putString( BundleValues.ENDGAME_BAR_LEVEL.toString(), ((Spinner) findViewById( R.id.BarGrabPosDropDown )).getSelectedItem().toString() );
+        bundle.putString( BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById( R.id.BarGrabPosDropDown )).getSelectedItem().toString() );
 
         //storing the user input values into the DataModel to be used in the DAO
         data.setMatchID( bundle.getInt( BundleValues.BasicRoundNum.toString(), 0 ) );
         data.setTeamID( TeamNumbers.fromValue(bundle.getString( BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString() ) ) );
-        data.setAllianceColor( AllianceColor.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(), AllianceColor.BLUE.toString() ) ) );
+        data.setAllianceColor( TeamColors.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString() ) ) );
        // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
        // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
        // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
@@ -124,3 +123,4 @@ public class MainActivity extends AppCompatActivity {
 
         BundleUtils.resetBundleValues(bundle);
     }
+}
