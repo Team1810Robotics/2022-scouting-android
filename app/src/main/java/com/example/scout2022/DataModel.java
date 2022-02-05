@@ -17,8 +17,8 @@ public class DataModel extends BaseDto {
 
     private TeamNumbers teamID;
     private TeamColors allianceColor;
-    private int startingBalls;
-    private String nameOfScouter;
+    //private int startingBalls;
+    //private String nameOfScouter;
     private boolean autoPassedLine;
     private int autoNumPowerCellsLower;
     private int autoNumPowerCellsOuter;
@@ -31,7 +31,7 @@ public class DataModel extends BaseDto {
     private boolean teleopTrench;
     private boolean teleopBar;
     private boolean teleopBallPickup;
-    private Stage teleopStageReached;
+    //private Stage teleopStageReached;
     private BarGrabPosition endgameBarGrabPosition;
     private boolean endgameWon;
 
@@ -56,7 +56,7 @@ public class DataModel extends BaseDto {
     public void setAllianceColor( final TeamColors allianceColor ) {
         this.allianceColor = allianceColor;
     }
-
+/*
     public int getStartingBalls() {
         return startingBalls;
     }
@@ -68,7 +68,7 @@ public class DataModel extends BaseDto {
     public String getScouterName(){return nameOfScouter;}
 
     public void setNameOfScouter( String nameOfScouter) {this.nameOfScouter = nameOfScouter;}
-
+*/
     public boolean isAutoPassedLine() {
         return autoPassedLine;
     }
@@ -158,7 +158,7 @@ public class DataModel extends BaseDto {
     public void setTeleopBallPickup( boolean teleopBallPickup ) {
         this.teleopBallPickup = teleopBallPickup;
     }
-
+/*
     public Stage getTeleopStageReached() {
         return teleopStageReached;
     }
@@ -166,7 +166,7 @@ public class DataModel extends BaseDto {
     public void setTeleopStageReached( Stage teleopStageReached ) {
         this.teleopStageReached = teleopStageReached;
     }
-
+*/
     public BarGrabPosition getEndgameBarGrabPosition() {
         return endgameBarGrabPosition;
     }
