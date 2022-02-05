@@ -1,21 +1,22 @@
 package com.example.scout2022;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.widget.Spinner;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.example.scout2022.databinding.ActivityMainBinding;
+import com.example.scout2022.ui.main.SectionsPagerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
-import com.example.scout2022.ui.main.SectionsPagerAdapter;
-import com.example.scout2022.databinding.ActivityMainBinding;
+import java.io.File;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-}
+
+
+
 //Create and save a new file
     public void FinalSave() {
         Bundle bundle = getIntent().getExtras();
@@ -56,29 +59,29 @@ public class MainActivity extends AppCompatActivity {
         final DataModel data = new DataModel();
 
         //setting final bundle value for bar grab position
-        bundle.putString( BundleValues.ENDGAME_BAR_LEVEL.toString(), ((Spinner) findViewById( R.id.BarGrabPosDropDown )).getSelectedItem().toString() );
+        bundle.putString( BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById( R.id.BarGrabPosDropDown )).getSelectedItem().toString() );
 
         //storing the user input values into the DataModel to be used in the DAO
-        data.setMatchID( bundle.getInt( BundleValues.STARTUP_MATCH_NUMBER.toString(), 0 ) );
-        data.setTeamID( TeamNumbers.fromValue(bundle.getString( BundleValues.STARTUP_ROBOT_ID.toString(), TeamNumbers.TEAM_245.toString() ) ) );
-        data.setAllianceColor( AllianceColor.forLabel( bundle.getString( BundleValues.STARTUP_ALLIANCE_COLOR.toString(), AllianceColor.BLUE.toString() ) ) );
-        data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
-        data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
-        data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
-        data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
-        data.setAutoNumPowerCellsOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
-        data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
-        data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
-        data.setTeleopColorCorrect( bundle.getBoolean( BundleValues.TELEOP_COLOR.toString(), false ) );
-        data.setTeleopNumPowerCellsInner( bundle.getInt( BundleValues.TELEOP_INNER_BALLS.toString(), 0 ) );
-        data.setTeleopNumPowerCellsLower( bundle.getInt( BundleValues.TELEOP_LOWER_BALLS.toString(), 0 ) );
-        data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
-        data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
-        data.setEndgameBarGrabPosition( BarGrabPosition.fromValue( bundle.getString( BundleValues.ENDGAME_BAR_LEVEL.toString(), BarGrabPosition.NONE.toString() ) ) );
-        data.setEndgameWon( bundle.getBoolean(BundleValues.ENDGAME_WIN.toString(), false ) );
-        data.setTeleopTrench( bundle.getBoolean(BundleValues.TELEOP_TRENCH.toString(), false ) );
-        data.setTeleopBar( bundle.getBoolean(BundleValues.TELEOP_BAR.toString(), false ) );
-        data.setTeleopBallPickup( bundle.getBoolean(BundleValues.TElEOP_BALL_PICKUP.toString(), false ) );
+        data.setMatchID( bundle.getInt( BundleValues.BasicRoundNum.toString(), 0 ) );
+        data.setTeamID( TeamNumbers.fromValue(bundle.getString( BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString() ) ) );
+        data.setAllianceColor( TeamColors.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString() ) ) );
+       // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
+       // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
+       // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
+       // data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
+       // data.setAutoNumPowerCellsOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
+       // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
+       // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
+        data.setTeleopColorCorrect( bundle.getBoolean( BundleValues.TeleOpColorCheck.toString(), false ) );
+        data.setTeleopNumPowerCellsInner( bundle.getInt( BundleValues.TeleOpLowerTicker.toString(), 0 ) );
+        data.setTeleopNumPowerCellsLower( bundle.getInt( BundleValues.TeleOpUpperTicker.toString(), 0 ) );
+       //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
+       // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
+        data.setEndgameBarGrabPosition( BarGrabPosition.fromValue( bundle.getString( BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString() ) ) );
+        data.setEndgameWon( bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false ) );
+        //data.setTeleopTrench( bundle.getBoolean(BundleValues.TELEOP_TRENCH.toString(), false ) );
+        //data.setTeleopBar( bundle.getBoolean(BundleValues.TELEOP_BAR.toString(), false ) );
+        //data.setTeleopBallPickup( bundle.getBoolean(BundleValues.TElEOP_BALL_PICKUP.toString(), false ) );
 
         //writing to the disk actually into the Documents Directory
         try {
@@ -124,3 +127,4 @@ public class MainActivity extends AppCompatActivity {
 
         BundleUtils.resetBundleValues(bundle);
     }
+}
