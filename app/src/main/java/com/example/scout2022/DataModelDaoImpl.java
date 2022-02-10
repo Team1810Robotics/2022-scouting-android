@@ -40,7 +40,7 @@ public final class DataModelDaoImpl implements DataModelDao {
         super();
         this.csvFileLocation = fileLocation;
     }
-
+//TODO update IDs to match current code
     private static void printDataModel( final DataModel data, final CSVPrinter csvPrinter ) throws IOException {
         csvPrinter.printRecord( data.getMatchID(), data.getTeamID() == null ? "null" : Integer.parseInt(data.getTeamID().toString()),
                 //data.getAllianceColor() == null ? "null" : data.getAllianceColor().toString(), data.getStartingBalls(),

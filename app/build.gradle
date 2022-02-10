@@ -40,8 +40,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation files('C:\\Users\\SJM00206\\Downloads\\commons-lang3-3.12.0.jar')
+    implementation files('C:\\Users\\SJM00206\\AndroidStudioProjects\\2022-scouting-android\\app\\build\\intermediates\\external_file_lib_dex_archives\\debug')
     implementation 'org.apache.commons:commons-lang3:3.12.0'
+    implementation fileTree(dir: 'C:\\Users\\SJM00206\\AndroidStudioProjects\\Imported_Java_Libraries\\commons-csv-1.9.0', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
