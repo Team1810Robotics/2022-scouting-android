@@ -17,12 +17,13 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
-
+import java.io.IOException;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
+    private static final String uniqueID = UUID.randomUUID().toString(); //creates unique ID for each save file
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
 //Create and save a new file
     public void FinalSave() {
+
         Bundle bundle = getIntent().getExtras();
         if ( bundle == null ) {
             bundle = new Bundle();
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         final DataModel data = new DataModel();
 
         //setting final bundle value for bar grab position
-        bundle.putString( BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById( R.id.BarGrabPosDropDown )).getSelectedItem().toString() );
+        bundle.putString( BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById( R.id.TeleOpHeightDropdown )).getSelectedItem().toString() );
 
         //storing the user input values into the DataModel to be used in the DAO
         data.setMatchID( bundle.getInt( BundleValues.BasicRoundNum.toString(), 0 ) );
@@ -96,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
             final File csvFileLocation = new File(
                     Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_DOCUMENTS ) +
-                            "/scouting2020export" + uniqueID + ".csv" );
+                            "/scouting2022export" + uniqueID + ".csv" );
 
             csvFileLocation.setReadable( true, false );
             csvFileLocation.setWritable( true, false );
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             final DataModelDao dao = new DataModelDaoImpl( csvFileLocation );
             dao.appendDataModel( data );
 
-            final Intent i = new Intent( getApplicationContext(), StartupActivity.class );
+            final Intent i = new Intent( getApplicationContext(), MainActivity.class );
             startActivity( i );
 
         } catch ( final Throwable e ) {
