@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+//TODO: Verify that parameter View is needed
 //Create and save a new file
-    public void FinalSave() {
+    public void FinalSave(View view) {
 
         Bundle bundle = getIntent().getExtras();
         if ( bundle == null ) {
@@ -129,4 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         BundleUtils.resetBundleValues(bundle);
     }
+
+
+
 }
