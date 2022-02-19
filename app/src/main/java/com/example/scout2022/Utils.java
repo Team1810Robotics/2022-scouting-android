@@ -5,10 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 */
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 /**
  * Utility class.
@@ -27,9 +23,9 @@ public final class Utils extends AppCompatActivity {
      * private static int _counter; //Counter
      * private String _string; //String
      */
-    private Utils() {
+    public Utils() {
     }
-
+/*
     public void increase(int id, BundleValues bundleLocation, int limit) {
         final Intent i = getIntent();
         Bundle bundle = i.getExtras();
@@ -67,7 +63,7 @@ public final class Utils extends AppCompatActivity {
         }
 
     }
-
+*/
 
 
    /*start of increase/decrease function

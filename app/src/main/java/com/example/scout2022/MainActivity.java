@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +22,9 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
-
+    private int minimumBallCount = 0;
+    private int maximumBallCount = 100;
+    private Utils Util = new Utils();
     private static final String uniqueID = UUID.randomUUID().toString(); //creates unique ID for each save file
     private ActivityMainBinding binding;
 
@@ -131,4 +134,56 @@ public class MainActivity extends AppCompatActivity {
 
         BundleUtils.resetBundleValues(bundle);
     }
+
+
+    /**
+     * Lower TeleOp Score Counter
+     */
+    public void decrementTeleOpLower(View view) {
+       decrease(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, minimumBallCount);
+    }
+
+    public void incrementTeleOpLower(View v) {
+       increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
+    }
+
+
+    public void increase(int id, BundleValues bundleLocation, int limit) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+
+        int variable = bundle.getInt(bundleLocation.toString(), 0);
+        if (variable < limit) {
+            variable++;
+            final TextView displayInteger = findViewById(id);
+            displayInteger.setText("" + variable);
+
+            bundle.putInt(bundleLocation.toString(), variable);
+            i.putExtras(bundle);
+        }
+
+    }
+
+    public void decrease(int id, BundleValues bundleLocation, int limit) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+
+        int variable = bundle.getInt(bundleLocation.toString(), 0);
+        if (variable > limit) {
+            variable--;
+            final TextView textView = findViewById(id);
+            textView.setText("" + variable);
+
+            bundle.putInt(bundleLocation.toString(), variable);
+            i.putExtras(bundle);
+        }
+
+    }
+
 }
