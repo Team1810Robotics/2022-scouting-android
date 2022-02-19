@@ -22,9 +22,9 @@ public enum TeamNumbers {
         this.indexTeam = indexTeam;
     }
 
-    public static TeamNumbers forIndex( final int indexIn ) {
-        for ( TeamNumbers val : TeamNumbers.values() ) {
-            if ( val.indexTeam == indexIn ) {
+    public static TeamNumbers forIndex(final int indexIn) {
+        for (TeamNumbers val : TeamNumbers.values()) {
+            if (val.indexTeam == indexIn) {
                 return val;
             }
         }
@@ -33,9 +33,9 @@ public enum TeamNumbers {
     }
 
 
-    public static final TeamNumbers fromValue( String valIn ) {
-        for ( TeamNumbers val : TeamNumbers.values() ) {
-            if ( val.teamLabel.equalsIgnoreCase( valIn ) ) {
+    public static final TeamNumbers fromValue(String valIn) {
+        for (TeamNumbers val : TeamNumbers.values()) {
+            if (val.teamLabel.equalsIgnoreCase(valIn)) {
                 return val;
             }
         }
@@ -44,9 +44,15 @@ public enum TeamNumbers {
     }
 
     @Override
-    public String toString() { return teamLabel; }
+    public String toString() {
+        return teamLabel;
+    }
 
-    public String getLabel() { return teamLabel; }
+    public String getLabel() {
+        return teamLabel;
+    }
 
-    public int getIndex() { return indexTeam; }
+    public int getIndex() {
+        return indexTeam;
+    }
 }

@@ -8,12 +8,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.scout2022.Page1;
-import com.example.scout2022.Page2;
-import com.example.scout2022.Page3;
-import com.example.scout2022.Page4;
+import com.example.scout2022.page_Basic;
+import com.example.scout2022.page_Auto;
+import com.example.scout2022.page_Final;
 import com.example.scout2022.R;
-import com.example.scout2022.databinding.FragmentPage1Binding;
+import com.example.scout2022.page_TeleOp;
+
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -40,16 +40,16 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new Page1(); //Start Page
+                fragment = new page_Basic(); //Start Page
                 break;
             case 1:
-                fragment = new Page2(); //Auto page
+                fragment = new page_Auto(); //Auto page
                 break;
             case 2:
-                fragment = new Page3(); //TeleOp Page
+                fragment = new page_TeleOp(); //TeleOp Page
                 break;
             case 3:
-                fragment = new Page4(); //Final page
+                fragment = new page_Final(); //Final page
                 break;
         }
         return fragment;

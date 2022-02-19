@@ -1,4 +1,5 @@
 package com.example.scout2022;
+
 //TODO Update IDs to current code
 public class DataModel extends BaseDto {
     // Data for startup screen
@@ -39,11 +40,13 @@ public class DataModel extends BaseDto {
         return matchID;
     }
 
-    public void setMatchID( final int matchID ) {
+    public void setMatchID(final int matchID) {
         this.matchID = matchID;
     }
 
-    public TeamNumbers getTeamID() { return teamID; }
+    public TeamNumbers getTeamID() {
+        return teamID;
+    }
 
     public void setTeamID(final TeamNumbers teamID) {
         this.teamID = teamID;
@@ -53,27 +56,28 @@ public class DataModel extends BaseDto {
         return allianceColor;
     }
 
-    public void setAllianceColor( final TeamColors allianceColor ) {
+    public void setAllianceColor(final TeamColors allianceColor) {
         this.allianceColor = allianceColor;
     }
-/*
-    public int getStartingBalls() {
-        return startingBalls;
-    }
 
-    public void setStartingBalls( int startingBalls ) {
-        this.startingBalls = startingBalls;
-    }
+    /*
+        public int getStartingBalls() {
+            return startingBalls;
+        }
 
-    public String getScouterName(){return nameOfScouter;}
+        public void setStartingBalls( int startingBalls ) {
+            this.startingBalls = startingBalls;
+        }
 
-    public void setNameOfScouter( String nameOfScouter) {this.nameOfScouter = nameOfScouter;}
-*/
+        public String getScouterName(){return nameOfScouter;}
+
+        public void setNameOfScouter( String nameOfScouter) {this.nameOfScouter = nameOfScouter;}
+    */
     public boolean isAutoPassedLine() {
         return autoPassedLine;
     }
 
-    public void setAutoPassedLine( boolean autoPassedLine ) {
+    public void setAutoPassedLine(boolean autoPassedLine) {
         this.autoPassedLine = autoPassedLine;
     }
 
@@ -81,7 +85,7 @@ public class DataModel extends BaseDto {
         return autoNumPowerCellsLower;
     }
 
-    public void setAutoNumPowerCellsLower( int autoNumPowerCellsLower ) {
+    public void setAutoNumPowerCellsLower(int autoNumPowerCellsLower) {
         this.autoNumPowerCellsLower = autoNumPowerCellsLower;
     }
 
@@ -89,7 +93,7 @@ public class DataModel extends BaseDto {
         return autoNumPowerCellsOuter;
     }
 
-    public void setAutoNumPowerCellsOuter( int autoNumPowerCellsOuter ) {
+    public void setAutoNumPowerCellsOuter(int autoNumPowerCellsOuter) {
         this.autoNumPowerCellsOuter = autoNumPowerCellsOuter;
     }
 
@@ -97,7 +101,7 @@ public class DataModel extends BaseDto {
         return autoNumPowerCellsInner;
     }
 
-    public void setAutoNumPowerCellsInner( int autoNumPowerCellsInner ) {
+    public void setAutoNumPowerCellsInner(int autoNumPowerCellsInner) {
         this.autoNumPowerCellsInner = autoNumPowerCellsInner;
     }
 
@@ -105,7 +109,7 @@ public class DataModel extends BaseDto {
         return teleopNumPowerCellsLower;
     }
 
-    public void setTeleopNumPowerCellsLower( int teleopNumPowerCellsLower ) {
+    public void setTeleopNumPowerCellsLower(int teleopNumPowerCellsLower) {
         this.teleopNumPowerCellsLower = teleopNumPowerCellsLower;
     }
 
@@ -113,7 +117,7 @@ public class DataModel extends BaseDto {
         return teleopNumPowerCellsOuter;
     }
 
-    public void setTeleopNumPowerCellsOuter( int teleopNumPowerCellsOuter ) {
+    public void setTeleopNumPowerCellsOuter(int teleopNumPowerCellsOuter) {
         this.teleopNumPowerCellsOuter = teleopNumPowerCellsOuter;
     }
 
@@ -121,7 +125,7 @@ public class DataModel extends BaseDto {
         return teleopNumPowerCellsInner;
     }
 
-    public void setTeleopNumPowerCellsInner( int teleopNumPowerCellsInner ) {
+    public void setTeleopNumPowerCellsInner(int teleopNumPowerCellsInner) {
         this.teleopNumPowerCellsInner = teleopNumPowerCellsInner;
     }
 
@@ -129,7 +133,7 @@ public class DataModel extends BaseDto {
         return teleopCanSpinWheel;
     }
 
-    public void setTeleopCanSpinWheel( boolean teleopCanSpinWheel ) {
+    public void setTeleopCanSpinWheel(boolean teleopCanSpinWheel) {
         this.teleopCanSpinWheel = teleopCanSpinWheel;
     }
 
@@ -137,41 +141,48 @@ public class DataModel extends BaseDto {
         return teleopColorCorrect;
     }
 
-    public void setTeleopColorCorrect( boolean teleopColorCorrect ) {
+    public void setTeleopColorCorrect(boolean teleopColorCorrect) {
         this.teleopColorCorrect = teleopColorCorrect;
     }
 
-    public boolean isTeleopTrenchCorrect() { return teleopTrench; }
+    public boolean isTeleopTrenchCorrect() {
+        return teleopTrench;
+    }
 
-    public void setTeleopTrench( boolean teleopTrench ) {
+    public void setTeleopTrench(boolean teleopTrench) {
         this.teleopTrench = teleopTrench;
     }
 
-    public boolean isTeleopBarCorrect() { return teleopBar; }
+    public boolean isTeleopBarCorrect() {
+        return teleopBar;
+    }
 
-    public void setTeleopBar( boolean teleopBar ) {
+    public void setTeleopBar(boolean teleopBar) {
         this.teleopBar = teleopBar;
     }
 
-    public boolean isTeleopBallPickupCorrect() { return teleopBallPickup; }
+    public boolean isTeleopBallPickupCorrect() {
+        return teleopBallPickup;
+    }
 
-    public void setTeleopBallPickup( boolean teleopBallPickup ) {
+    public void setTeleopBallPickup(boolean teleopBallPickup) {
         this.teleopBallPickup = teleopBallPickup;
     }
-/*
-    public Stage getTeleopStageReached() {
-        return teleopStageReached;
-    }
 
-    public void setTeleopStageReached( Stage teleopStageReached ) {
-        this.teleopStageReached = teleopStageReached;
-    }
-*/
+    /*
+        public Stage getTeleopStageReached() {
+            return teleopStageReached;
+        }
+
+        public void setTeleopStageReached( Stage teleopStageReached ) {
+            this.teleopStageReached = teleopStageReached;
+        }
+    */
     public BarGrabPosition getEndgameBarGrabPosition() {
         return endgameBarGrabPosition;
     }
 
-    public void setEndgameBarGrabPosition( BarGrabPosition endgameBarGrabPosition ) {
+    public void setEndgameBarGrabPosition(BarGrabPosition endgameBarGrabPosition) {
         this.endgameBarGrabPosition = endgameBarGrabPosition;
     }
 
@@ -179,7 +190,7 @@ public class DataModel extends BaseDto {
         return endgameWon;
     }
 
-    public void setEndgameWon( boolean endgameWon ) {
+    public void setEndgameWon(boolean endgameWon) {
         this.endgameWon = endgameWon;
     }
 }

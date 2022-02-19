@@ -11,12 +11,13 @@ import androidx.fragment.app.Fragment;
 /**
  * creates page
  */
-public class Page4 extends Fragment {
+public class page_Basic extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page4, container, false);
+        return inflater.inflate(R.layout.fragment_page1, container, false);
     }
+
 }

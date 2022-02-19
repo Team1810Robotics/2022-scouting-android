@@ -1,7 +1,7 @@
 package com.example.scout2022;
 
 public enum BarGrabPosition {
-    NONE(0,"None"), LEVEL(1,"Level"), HIGH(2,"High");
+    NONE(0, "None"), LEVEL(1, "Level"), HIGH(2, "High");
 
     private final String barLabel;
     private final int indexBar;
@@ -11,9 +11,9 @@ public enum BarGrabPosition {
         this.indexBar = indexBar;
     }
 
-    public static BarGrabPosition forIndex( final int indexIn ) {
-        for ( BarGrabPosition val : BarGrabPosition.values() ) {
-            if ( val.indexBar == indexIn ) {
+    public static BarGrabPosition forIndex(final int indexIn) {
+        for (BarGrabPosition val : BarGrabPosition.values()) {
+            if (val.indexBar == indexIn) {
                 return val;
             }
         }
@@ -22,9 +22,9 @@ public enum BarGrabPosition {
     }
 
 
-    public static final BarGrabPosition fromValue( String valIn ) {
-        for ( BarGrabPosition val : BarGrabPosition.values() ) {
-            if ( val.barLabel.equalsIgnoreCase( valIn ) ) {
+    public static final BarGrabPosition fromValue(String valIn) {
+        for (BarGrabPosition val : BarGrabPosition.values()) {
+            if (val.barLabel.equalsIgnoreCase(valIn)) {
                 return val;
             }
         }
@@ -33,9 +33,15 @@ public enum BarGrabPosition {
     }
 
     @Override
-    public String toString() { return barLabel; }
+    public String toString() {
+        return barLabel;
+    }
 
-    public String getLabel() { return barLabel; }
+    public String getLabel() {
+        return barLabel;
+    }
 
-    public int getIndex() { return indexBar; }
+    public int getIndex() {
+        return indexBar;
+    }
 }

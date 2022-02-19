@@ -22,9 +22,8 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
     private static final String uniqueID = UUID.randomUUID().toString(); //creates unique ID for each save file
-    @Override
+    private ActivityMainBinding binding;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = binding.fab;
 
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,83 +46,85 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
+
     }
 
 
-
-//Create and save a new file
+    //Create and save a new file
     public void FinalSave() {
 
         Bundle bundle = getIntent().getExtras();
-        if ( bundle == null ) {
+        if (bundle == null) {
             bundle = new Bundle();
         }
 
         final DataModel data = new DataModel();
 
         //setting final bundle value for bar grab position
-        bundle.putString( BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById( R.id.TeleOpHeightDropdown )).getSelectedItem().toString() );
+        bundle.putString(BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
 
         //storing the user input values into the DataModel to be used in the DAO
-        data.setMatchID( bundle.getInt( BundleValues.BasicRoundNum.toString(), 0 ) );
-        data.setTeamID( TeamNumbers.fromValue(bundle.getString( BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString() ) ) );
-        data.setAllianceColor( TeamColors.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString() ) ) );
-       // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
-       // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
-       // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
-       // data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
-       // data.setAutoNumPowerCellsOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
-       // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
-       // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
-        data.setTeleopColorCorrect( bundle.getBoolean( BundleValues.TeleOpColorCheck.toString(), false ) );
-        data.setTeleopNumPowerCellsInner( bundle.getInt( BundleValues.TeleOpLowerTicker.toString(), 0 ) );
-        data.setTeleopNumPowerCellsLower( bundle.getInt( BundleValues.TeleOpUpperTicker.toString(), 0 ) );
-       //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
-       // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
-        data.setEndgameBarGrabPosition( BarGrabPosition.fromValue( bundle.getString( BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString() ) ) );
-        data.setEndgameWon( bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false ) );
+        data.setMatchID(bundle.getInt(BundleValues.BasicRoundNum.toString(), 0));
+        data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString())));
+        data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString())));
+        // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
+        // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
+        // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
+        // data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
+        // data.setAutoNumPowerCellsOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
+        // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
+        // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
+        data.setTeleopColorCorrect(bundle.getBoolean(BundleValues.TeleOpColorCheck.toString(), false));
+        data.setTeleopNumPowerCellsInner(bundle.getInt(BundleValues.TeleOpLowerCounter.toString(), 0));
+        data.setTeleopNumPowerCellsLower(bundle.getInt(BundleValues.TeleOpUpperCounter.toString(), 0));
+        //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
+        // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
+        data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString())));
+        data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
         //data.setTeleopTrench( bundle.getBoolean(BundleValues.TELEOP_TRENCH.toString(), false ) );
         //data.setTeleopBar( bundle.getBoolean(BundleValues.TELEOP_BAR.toString(), false ) );
         //data.setTeleopBallPickup( bundle.getBoolean(BundleValues.TElEOP_BALL_PICKUP.toString(), false ) );
 
         //writing to the disk actually into the Documents Directory
         try {
-            File dir = Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_DOCUMENTS );
+            File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS);
 
-            dir.setWritable( true, false );
-            dir.setReadable( true, false );
+            dir.setWritable(true, false);
+            dir.setReadable(true, false);
 
-            if ( !dir.exists() && !dir.mkdirs() ) {
-                throw new IOException( "Could not create directory '" + dir + "'." );
+            if (!dir.exists() && !dir.mkdirs()) {
+                throw new IOException("Could not create directory '" + dir + "'.");
             }
 
             final File csvFileLocation = new File(
-                    Environment.getExternalStoragePublicDirectory( Environment.DIRECTORY_DOCUMENTS ) +
-                            "/scouting2022export" + uniqueID + ".csv" );
+                    Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) +
+                            "/scouting2022export" + uniqueID + ".csv");
 
-            csvFileLocation.setReadable( true, false );
-            csvFileLocation.setWritable( true, false );
+            csvFileLocation.setReadable(true, false);
+            csvFileLocation.setWritable(true, false);
 
-            if ( !csvFileLocation.exists() && !csvFileLocation.createNewFile() ) {
-                throw new IOException( "Could not create file'" + csvFileLocation + "'" );
+            if (!csvFileLocation.exists() && !csvFileLocation.createNewFile()) {
+                throw new IOException("Could not create file'" + csvFileLocation + "'");
             }
 
-            final DataModelDao dao = new DataModelDaoImpl( csvFileLocation );
-            dao.appendDataModel( data );
+            final DataModelDao dao = new DataModelDaoImpl(csvFileLocation);
+            dao.appendDataModel(data);
 
-            final Intent i = new Intent( getApplicationContext(), MainActivity.class );
-            startActivity( i );
+            final Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
 
-        } catch ( final Throwable e ) {
+        } catch (final Throwable e) {
             e.printStackTrace();
 
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder( this );
-            alertDialogBuilder.setMessage( e.getMessage() );
-            alertDialogBuilder.setTitle( "File Save Error Contact A Programmer" );
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            alertDialogBuilder.setMessage(e.getMessage());
+            alertDialogBuilder.setTitle("File Save Error Contact A Programmer");
 
-            alertDialogBuilder.setNegativeButton( "Okay", ( dialog, which ) -> {
+            alertDialogBuilder.setNegativeButton("Okay", (dialog, which) -> {
                 finish();
-            } );
+            });
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
         }

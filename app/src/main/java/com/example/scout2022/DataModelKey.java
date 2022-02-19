@@ -1,10 +1,10 @@
 package com.example.scout2022;
 //TODO update IDs to match current code
+
 /**
  * Data model key - i.e. what makes a data record unique.
  *
  * @author Michael Sheehan
- *
  */
 public class DataModelKey extends BaseDto {
     /**
@@ -25,7 +25,7 @@ public class DataModelKey extends BaseDto {
         return matchID;
     }
 
-    public void setMatchID( final int matchID ) {
+    public void setMatchID(final int matchID) {
         this.matchID = matchID;
     }
 
@@ -33,7 +33,7 @@ public class DataModelKey extends BaseDto {
         return teamID;
     }
 
-    public void setTeamID( final int teamID ) {
+    public void setTeamID(final int teamID) {
         this.teamID = teamID;
     }
 }
