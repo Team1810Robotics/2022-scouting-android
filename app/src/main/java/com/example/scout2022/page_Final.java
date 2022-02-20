@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 /**
  * creates page
  */
-public class Page4 extends Fragment {
+public class page_Final extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

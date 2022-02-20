@@ -21,7 +21,7 @@ public interface DataModelDao {
      * @param data Data for the new record.
      * @throws IOException Thrown on error.
      */
-    void appendDataModel( DataModel data ) throws IOException;
+    void appendDataModel(DataModel data) throws IOException;
 
     /**
      * Deletes all the existing data in the data store.

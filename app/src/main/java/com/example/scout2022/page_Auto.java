@@ -11,8 +11,7 @@ import androidx.fragment.app.Fragment;
 /**
  * creates page
  */
-// auto page
-public class Page2 extends Fragment {
+public class page_Auto extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
