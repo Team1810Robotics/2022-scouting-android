@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     * Lower TeleOp Score Counter
+     * Score Counter increment and decrement
      */
     public void decrementTeleOpLower(View view) {
        decrease(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, minimumBallCount);
@@ -145,6 +145,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void incrementTeleOpLower(View v) {
        increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
+    }
+
+    public void decrementTeleOpUpper(View v) {
+        increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
+    }
+
+    public void incrementTeleOpUpper(View v) {
+        increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
     }
 
 
