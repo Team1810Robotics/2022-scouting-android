@@ -148,11 +148,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void decrementTeleOpUpper(View v) {
-        increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
+        decrease(R.id.TeleOpUpperTicker, BundleValues.TeleOpUpperCounter, minimumBallCount);
     }
 
     public void incrementTeleOpUpper(View v) {
-        increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
+        increase(R.id.TeleOpUpperTicker, BundleValues.TeleOpUpperCounter, maximumBallCount);
     }
 
 
