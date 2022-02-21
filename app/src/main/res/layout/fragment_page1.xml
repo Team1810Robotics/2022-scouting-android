@@ -24,43 +24,42 @@
 
     <EditText
         android:id="@+id/BasicTeamNum"
-        android:layout_width="166dp"
-        android:layout_height="48dp"
+        android:layout_width="197dp"
+        android:layout_height="75dp"
         android:hint="@string/team_number"
         android:inputType="number"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintVertical_bias="0.3" />
 
     <EditText
         android:id="@+id/BasicRoundNum"
-        android:layout_width="166dp"
-        android:layout_height="48dp"
+        android:layout_width="91dp"
+        android:layout_height="75dp"
         android:layout_marginBottom="208dp"
         android:hint="Round"
         android:inputType="number"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/BasicTeamNum"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/BasicTeamNum"
         app:layout_constraintTop_toBottomOf="@+id/BasicTeamNum"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <Spinner
         android:id="@+id/BasicColorDropdown"
-        android:layout_width="227dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="513dp"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        app:layout_constraintVertical_bias="0.25"
         android:entries="@array/alliance_Colors"
+        android:scrollbarSize="30dp"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/BasicRoundNum" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

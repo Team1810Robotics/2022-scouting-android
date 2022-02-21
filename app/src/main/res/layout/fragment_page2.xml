@@ -38,10 +38,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/AutoLowerPlus"
+        android:id="@+id/AutoLowerMinus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:text="@string/AutoLowerPlus"
+        android:text="@string/AutoLowerMinus"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,16 +52,16 @@
         app:layout_constraintVertical_bias="0.311" />
 
     <Button
-        android:id="@+id/AutoLowerMinus"
+        android:id="@+id/AutoLowerPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:text="@string/AutoLowerMinus"
+        android:text="@string/AutoLowerPlus"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.234"
-        app:layout_constraintStart_toEndOf="@+id/AutoLowerPlus"
+        app:layout_constraintStart_toEndOf="@+id/AutoLowerMinus"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309" />
 
@@ -74,9 +74,9 @@
         android:text="@string/_0"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/AutoLowerMinus"
+        app:layout_constraintEnd_toEndOf="@+id/AutoLowerPlus"
         app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/AutoLowerPlus"
+        app:layout_constraintStart_toEndOf="@+id/AutoLowerMinus"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.318" />
 
@@ -87,32 +87,31 @@
         android:text="@string/_0"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/AutoUpperMinus"
-        app:layout_constraintEnd_toStartOf="@+id/AutoUpperMinus"
-        app:layout_constraintStart_toEndOf="@+id/AutoUpperPlus"
+        app:layout_constraintEnd_toEndOf="@+id/AutoUpperPlus"
+        app:layout_constraintEnd_toStartOf="@+id/AutoUpperPlus"
+        app:layout_constraintStart_toEndOf="@+id/AutoUpperMinus"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.473" />
-
-    <Button
-        android:id="@+id/AutoUpperMinus"
-        android:layout_width="54dp"
-        android:layout_height="59dp"
-
-        android:text="@string/AutoLowerMinus"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.234"
-        app:layout_constraintStart_toEndOf="@+id/AutoUpperPlus"
-        app:layout_constraintTop_toBottomOf="@+id/AutoLowerMinus"
-        app:layout_constraintVertical_bias="0.128" />
 
     <Button
         android:id="@+id/AutoUpperPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:text="@string/AutoLowerPlus"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toEndOf="@+id/AutoUpperMinus"
+        app:layout_constraintTop_toBottomOf="@+id/AutoLowerPlus"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <Button
+        android:id="@+id/AutoUpperMinus"
+        android:layout_width="54dp"
+        android:layout_height="59dp"
+        android:text="@string/AutoLowerMinus"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -162,8 +161,7 @@
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625"
-        />
+        app:layout_constraintVertical_bias="0.623" />
 
     <CheckBox
         android:id="@+id/checkBox"
