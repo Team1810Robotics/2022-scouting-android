@@ -9,5 +9,9 @@ public enum BundleValues {
   */
     BasicRoundNum, BasicTeamNum, BasicColorDropdown,
     //no Startup Balls, Scouter Name, or Auto
+<<<<<<< HEAD
+    TeleOpLowerTicker, TeleOpUpperTicker, TeleOpColorCheck, TeleOpHeightDropdown, FinalNotes, FinalWinCheck, AutoLowerTicker, AutoUpperTicker
+=======
     TeleOpLowerCounter, TeleOpUpperCounter, TeleOpColorCheck, TeleOpHeightDropdown, FinalNotes, FinalWinCheck
+>>>>>>> origin/12-bundlevalues-and-relevant-location-id-updates
 }

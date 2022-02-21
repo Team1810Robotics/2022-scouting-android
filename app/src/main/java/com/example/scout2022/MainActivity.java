@@ -51,12 +51,18 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+<<<<<<< HEAD
+//TODO: Verify that parameter View is needed
+//Create and save a new file
+    public void FinalSave(View view) {
+=======
 
     }
 
 
     //Create and save a new file
     public void FinalSave() {
+>>>>>>> origin/12-bundlevalues-and-relevant-location-id-updates
 
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
@@ -69,6 +75,25 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString(BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
 
         //storing the user input values into the DataModel to be used in the DAO
+<<<<<<< HEAD
+        data.setMatchID( bundle.getInt( BundleValues.BasicRoundNum.toString(), 0 ) );
+        data.setTeamID( TeamNumbers.fromValue(bundle.getString( BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString() ) ) );
+        data.setAllianceColor( TeamColors.forLabel( bundle.getString( BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString() ) ) );
+       // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
+       // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
+        data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AutoUpperTicker.toString(), 0 ) );
+        data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AutoLowerTicker.toString(), 0 ) );
+
+       // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
+       // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
+        data.setTeleopColorCorrect( bundle.getBoolean( BundleValues.TeleOpColorCheck.toString(), false ) );
+        data.setTeleopNumPowerCellsInner( bundle.getInt( BundleValues.TeleOpLowerTicker.toString(), 0 ) );
+        data.setTeleopNumPowerCellsLower( bundle.getInt( BundleValues.TeleOpUpperTicker.toString(), 0 ) );
+       //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
+       // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
+        data.setEndgameBarGrabPosition( BarGrabPosition.fromValue( bundle.getString( BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString() ) ) );
+        data.setEndgameWon( bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false ) );
+=======
         data.setMatchID(bundle.getInt(BundleValues.BasicRoundNum.toString(), 0));
         data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString())));
         data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString())));
@@ -86,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
         // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString())));
         data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
+>>>>>>> origin/12-bundlevalues-and-relevant-location-id-updates
         //data.setTeleopTrench( bundle.getBoolean(BundleValues.TELEOP_TRENCH.toString(), false ) );
         //data.setTeleopBar( bundle.getBoolean(BundleValues.TELEOP_BAR.toString(), false ) );
         //data.setTeleopBallPickup( bundle.getBoolean(BundleValues.TElEOP_BALL_PICKUP.toString(), false ) );
@@ -136,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+<<<<<<< HEAD
+=======
     /**
      * Score Counter increment and decrement
      */
@@ -193,5 +221,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+>>>>>>> origin/12-bundlevalues-and-relevant-location-id-updates
 
 }
