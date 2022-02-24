@@ -24,23 +24,23 @@
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:text="-"
         android:textSize="30sp"
-
-        app:layout_constraintStart_toEndOf="@+id/TeleOpLowerTicker"
+        android:onClick="decrementTeleOpLower"
+        app:layout_constraintEnd_toStartOf="@+id/TeleOpLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-//        android:onClick="TeleOpLowerDe"
+
     <Button
         android:id="@+id/TeleOpLowerPlus"
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:text="+"
         android:textSize="24sp"
         android:onClick="incrementTeleOpLower"
-        app:layout_constraintEnd_toStartOf="@+id/TeleOpLowerTicker"
+        app:layout_constraintStart_toEndOf="@+id/TeleOpLowerTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 //
     <TextView
@@ -74,12 +74,13 @@
         android:id="@+id/TeleOpUpperMinus"
         android:layout_width="54dp"
         android:layout_height="59dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginTop="80dp"
         android:onClick="TeleOpUpperDe"
         android:text="-"
         android:textSize="30sp"
-        app:layout_constraintStart_toEndOf="@+id/TeleOpUpperTicker"
+        android:onClick="decrementTeleOpUpper"
+        app:layout_constraintEnd_toStartOf="@+id/TeleOpUpperTicker"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
@@ -87,12 +88,12 @@
         android:layout_width="54dp"
         android:layout_height="59dp"
         android:layout_marginTop="80dp"
-        android:layout_marginEnd="10dp"
-        android:onClick="TeleOpUpperIn"
+        android:layout_marginStart="10dp"
         android:text="+"
         android:textSize="24sp"
+        android:onClick="incrementTeleOpUpper"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@id/TeleOpUpperTicker"
+        app:layout_constraintStart_toEndOf="@id/TeleOpUpperTicker"
        />
 
     <TextView
