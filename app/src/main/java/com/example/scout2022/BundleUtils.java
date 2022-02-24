@@ -18,7 +18,7 @@ public class BundleUtils {
         data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(),
                 TeamColors.BLUE.toString())));
         //data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
-<<<<<<< HEAD
+
         data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AutoUpperTicker.toString(), 0 ) );
         data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AutoLowerTicker.toString(), 0 ) );
        // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
@@ -26,7 +26,8 @@ public class BundleUtils {
         data.setTeleopColorCorrect( bundle.getBoolean( BundleValues.TeleOpColorCheck.toString(), false ) );
         data.setTeleopNumPowerCellsInner( bundle.getInt( BundleValues.TeleOpLowerTicker.toString(), 0 ) );
         data.setTeleopNumPowerCellsLower( bundle.getInt( BundleValues.TeleOpUpperTicker.toString(), 0 ) );
-=======
+/* // TODO delete
+
         // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
         // data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
         // data.setAutoNumPowerCellsOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
@@ -35,7 +36,9 @@ public class BundleUtils {
         data.setTeleopColorCorrect(bundle.getBoolean(BundleValues.TeleOpColorCheck.toString(), false));
         data.setTeleopNumPowerCellsInner(bundle.getInt(BundleValues.TeleOpLowerCounter.toString(), 0));
         data.setTeleopNumPowerCellsLower(bundle.getInt(BundleValues.TeleOpUpperCounter.toString(), 0));
->>>>>>> origin/12-bundlevalues-and-relevant-location-id-updates
+
+ */
+
         //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
         //data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(
@@ -59,8 +62,8 @@ public class BundleUtils {
                 //case STARTUP_BALLS:
                 case BasicRoundNum:
                 case BasicTeamNum:
-                case TeleOpLowerCounter:
-                case TeleOpUpperCounter:
+                case TeleOpLowerTicker:
+                case TeleOpUpperTicker:
                     //case TELEOP_OUTER_BALLS:
                     //case TELEOP_STAGE_LEVEL:
                     b.putInt(val.toString(), 0);
