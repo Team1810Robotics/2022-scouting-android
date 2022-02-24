@@ -49,20 +49,11 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-/*
-<<<<<<<HEAD
-//TODO: Verify that parameter View is needed
-//Create and save a new file
-        public void FinalSave (View view){
-
- */
-
-        }
+    }
 
 
         //Create and save a new file
-        public void FinalSave () {
+        public void FinalSave (View view) {
 
             Bundle bundle = getIntent().getExtras();
             if (bundle == null) {
@@ -76,21 +67,29 @@ public class MainActivity extends AppCompatActivity {
 
             //storing the user input values into the DataModel to be used in the DAO
 
+            //Basic Page
             data.setMatchID(bundle.getInt(BundleValues.BasicRoundNum.toString(), 0));
             data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString())));
             data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString())));
+
             // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
             // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
-            data.setAutoNumPowerCellsInner(bundle.getInt(BundleValues.AutoUpperTicker.toString(), 0));
-            data.setAutoNumPowerCellsLower(bundle.getInt(BundleValues.AutoLowerTicker.toString(), 0));
+
+            //Auto Page
+            data.setAutoNumCargoUpper(bundle.getInt(BundleValues.AutoUpperTicker.toString(), 0));
+            data.setAutoNumCargoLower(bundle.getInt(BundleValues.AutoLowerTicker.toString(), 0));
 
             // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
             // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
+
+            //TeleOp Page
             data.setTeleopColorCorrect(bundle.getBoolean(BundleValues.TeleOpColorCheck.toString(), false));
-            data.setTeleopNumPowerCellsInner(bundle.getInt(BundleValues.TeleOpLowerTicker.toString(), 0));
-            data.setTeleopNumPowerCellsLower(bundle.getInt(BundleValues.TeleOpUpperTicker.toString(), 0));
-            //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
+            data.setTeleopNumCargoLower(bundle.getInt(BundleValues.TeleOpLowerTicker.toString(), 0));
+            data.setTeleopNumCargoUpper(bundle.getInt(BundleValues.TeleOpUpperTicker.toString(), 0));
+
+            // data.setTeleopNumCargoOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
             // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
+
             data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString())));
             data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
 
@@ -100,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
                 dir.setWritable(true, false);
                 dir.setReadable(true, false);
-
+                //TODO test app on tablet with granted permission in android settings to access files
                 if (!dir.exists() && !dir.mkdirs()) {
                     throw new IOException("Could not create directory '" + dir + "'.");
                 }
@@ -137,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             BundleUtils.resetBundleValues(bundle);
-        }
+             }
 
 
         /**
@@ -215,4 +214,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-    }
+
+}

@@ -21,12 +21,12 @@ public class DataModel extends BaseDto {
     //private int startingBalls;
     //private String nameOfScouter;
     private boolean autoPassedLine;
-    private int autoNumPowerCellsLower;
-    private int autoNumPowerCellsOuter;
-    private int autoNumPowerCellsInner;
-    private int teleopNumPowerCellsLower;
-    private int teleopNumPowerCellsOuter;
-    private int teleopNumPowerCellsInner;
+    private int autoNumCargoLower;
+    private int autoNumCargoOuter;
+    private int autoNumCargoInner;
+    private int teleopNumCargoLower;
+    private int teleopNumCargoOuter;
+    private int teleopNumCargoInner;
     private boolean teleopCanSpinWheel;
     private boolean teleopColorCorrect;
     private boolean teleopTrench;
@@ -81,52 +81,52 @@ public class DataModel extends BaseDto {
         this.autoPassedLine = autoPassedLine;
     }
 
-    public int getAutoNumPowerCellsLower() {
-        return autoNumPowerCellsLower;
+    public int getAutoNumCargoLower() {
+        return autoNumCargoLower;
     }
 
-    public void setAutoNumPowerCellsLower(int autoNumPowerCellsLower) {
-        this.autoNumPowerCellsLower = autoNumPowerCellsLower;
+    public void setAutoNumCargoLower(int autoNumCargoLower) {
+        this.autoNumCargoLower = autoNumCargoLower;
     }
 
-    public int getAutoNumPowerCellsOuter() {
-        return autoNumPowerCellsOuter;
+    public int getAutoNumCargoOuter() {
+        return autoNumCargoOuter;
     }
 
-    public void setAutoNumPowerCellsOuter(int autoNumPowerCellsOuter) {
-        this.autoNumPowerCellsOuter = autoNumPowerCellsOuter;
+    public void setAutoNumCargoOuter(int autoNumCargoOuter) {
+        this.autoNumCargoOuter = autoNumCargoOuter;
     }
 
-    public int getAutoNumPowerCellsInner() {
-        return autoNumPowerCellsInner;
+    public int getAutoNumCargoInner() {
+        return autoNumCargoInner;
     }
 
-    public void setAutoNumPowerCellsInner(int autoNumPowerCellsInner) {
-        this.autoNumPowerCellsInner = autoNumPowerCellsInner;
+    public void setAutoNumCargoUpper(int autoNumCargoInner) {
+        this.autoNumCargoInner = autoNumCargoInner;
     }
 
-    public int getTeleopNumPowerCellsLower() {
-        return teleopNumPowerCellsLower;
+    public int getTeleopNumCargoLower() {
+        return teleopNumCargoLower;
     }
 
-    public void setTeleopNumPowerCellsLower(int teleopNumPowerCellsLower) {
-        this.teleopNumPowerCellsLower = teleopNumPowerCellsLower;
+    public void setTeleopNumCargoUpper(int teleopNumCargoLower) {
+        this.teleopNumCargoLower = teleopNumCargoLower;
     }
 
-    public int getTeleopNumPowerCellsOuter() {
-        return teleopNumPowerCellsOuter;
+    public int getTeleopNumCargoOuter() {
+        return teleopNumCargoOuter;
     }
 
-    public void setTeleopNumPowerCellsOuter(int teleopNumPowerCellsOuter) {
-        this.teleopNumPowerCellsOuter = teleopNumPowerCellsOuter;
+    public void setTeleopNumCargoOuter(int teleopNumCargoOuter) {
+        this.teleopNumCargoOuter = teleopNumCargoOuter;
     }
 
-    public int getTeleopNumPowerCellsInner() {
-        return teleopNumPowerCellsInner;
+    public int getTeleopNumCargoInner() {
+        return teleopNumCargoInner;
     }
 
-    public void setTeleopNumPowerCellsInner(int teleopNumPowerCellsInner) {
-        this.teleopNumPowerCellsInner = teleopNumPowerCellsInner;
+    public void setTeleopNumCargoLower(int teleopNumCargoInner) {
+        this.teleopNumCargoInner = teleopNumCargoInner;
     }
 
     public boolean isTeleopCanSpinWheel() {
