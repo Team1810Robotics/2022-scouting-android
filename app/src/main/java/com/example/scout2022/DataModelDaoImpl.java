@@ -45,9 +45,9 @@ public final class DataModelDaoImpl implements DataModelDao {
         csvPrinter.printRecord(data.getMatchID(), data.getTeamID() == null ? "null" : Integer.parseInt(data.getTeamID().toString()),
                 //data.getAllianceColor() == null ? "null" : data.getAllianceColor().toString(), data.getStartingBalls(),
                 //data.getScouterName() == null ? "null" : data.getScouterName(),
-                BooleanUtils.toStringTrueFalse(data.isAutoPassedLine()), data.getAutoNumPowerCellsLower(),
-                data.getAutoNumPowerCellsOuter(), data.getAutoNumPowerCellsInner(), data.getTeleopNumPowerCellsLower(),
-                data.getTeleopNumPowerCellsOuter(), data.getTeleopNumPowerCellsInner(),
+                BooleanUtils.toStringTrueFalse(data.isAutoPassedLine()), data.getAutoNumCargoLower(),
+                data.getAutoNumCargoOuter(), data.getAutoNumCargoInner(), data.getTeleopNumCargoLower(),
+                data.getTeleopNumCargoOuter(), data.getTeleopNumCargoInner(),
                 BooleanUtils.toStringTrueFalse(data.isTeleopCanSpinWheel()),
                 BooleanUtils.toStringTrueFalse(data.isTeleopColorCorrect()),
                 BooleanUtils.toStringTrueFalse(data.isTeleopTrenchCorrect()),
@@ -68,12 +68,12 @@ public final class DataModelDaoImpl implements DataModelDao {
         //data.setStartingBalls( Utils.toInt( rec.get( pos++ ) ) );
         //data.setNameOfScouter( ( rec.get( pos++ ) ) );
         data.setAutoPassedLine(BooleanUtils.toBoolean(rec.get(pos++)));
-        data.setAutoNumPowerCellsLower(Utils.toInt(rec.get(pos++)));
-        data.setAutoNumPowerCellsOuter(Utils.toInt(rec.get(pos++)));
-        data.setAutoNumPowerCellsInner(Utils.toInt(rec.get(pos++)));
-        data.setTeleopNumPowerCellsLower(Utils.toInt(rec.get(pos++)));
-        data.setTeleopNumPowerCellsOuter(Utils.toInt(rec.get(pos++)));
-        data.setTeleopNumPowerCellsInner(Utils.toInt(rec.get(pos++)));
+        data.setAutoNumCargoLower(Utils.toInt(rec.get(pos++)));
+        data.setAutoNumCargoOuter(Utils.toInt(rec.get(pos++)));
+        data.setAutoNumCargoUpper(Utils.toInt(rec.get(pos++)));
+        data.setTeleopNumCargoUpper(Utils.toInt(rec.get(pos++)));
+        data.setTeleopNumCargoOuter(Utils.toInt(rec.get(pos++)));
+        data.setTeleopNumCargoLower(Utils.toInt(rec.get(pos++)));
         data.setTeleopCanSpinWheel(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopColorCorrect(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopTrench(BooleanUtils.toBoolean(rec.get(pos++)));

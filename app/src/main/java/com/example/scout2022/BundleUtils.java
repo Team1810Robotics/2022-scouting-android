@@ -19,27 +19,27 @@ public class BundleUtils {
                 TeamColors.BLUE.toString())));
         //data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
 
-        data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AutoUpperTicker.toString(), 0 ) );
-        data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AutoLowerTicker.toString(), 0 ) );
+        data.setAutoNumCargoUpper( bundle.getInt( BundleValues.AutoUpperTicker.toString(), 0 ) );
+        data.setAutoNumCargoLower( bundle.getInt( BundleValues.AutoLowerTicker.toString(), 0 ) );
        // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
        // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
         data.setTeleopColorCorrect( bundle.getBoolean( BundleValues.TeleOpColorCheck.toString(), false ) );
-        data.setTeleopNumPowerCellsInner( bundle.getInt( BundleValues.TeleOpLowerTicker.toString(), 0 ) );
-        data.setTeleopNumPowerCellsLower( bundle.getInt( BundleValues.TeleOpUpperTicker.toString(), 0 ) );
+        data.setTeleopNumCargoLower( bundle.getInt( BundleValues.TeleOpLowerTicker.toString(), 0 ) );
+        data.setTeleopNumCargoUpper( bundle.getInt( BundleValues.TeleOpUpperTicker.toString(), 0 ) );
 /* // TODO delete
 
-        // data.setAutoNumPowerCellsInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
-        // data.setAutoNumPowerCellsLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
-        // data.setAutoNumPowerCellsOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
+        // data.setAutoNumCargoInner( bundle.getInt( BundleValues.AUTO_POWERCELL_INNER.toString(), 0 ) );
+        // data.setAutoNumCargoLower( bundle.getInt( BundleValues.AUTO_POWERCELL_LOWER.toString(), 0 ) );
+        // data.setAutoNumCargoOuter( bundle.getInt( BundleValues.AUTO_POWERCELL_OUTER.toString(), 0 ) );
         // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
         // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
         data.setTeleopColorCorrect(bundle.getBoolean(BundleValues.TeleOpColorCheck.toString(), false));
-        data.setTeleopNumPowerCellsInner(bundle.getInt(BundleValues.TeleOpLowerCounter.toString(), 0));
-        data.setTeleopNumPowerCellsLower(bundle.getInt(BundleValues.TeleOpUpperCounter.toString(), 0));
+        data.setTeleopNumCargoInner(bundle.getInt(BundleValues.TeleOpLowerCounter.toString(), 0));
+        data.setTeleopNumCargoLower(bundle.getInt(BundleValues.TeleOpUpperCounter.toString(), 0));
 
  */
 
-        //data.setTeleopNumPowerCellsOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
+        //data.setTeleopNumCargoOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
         //data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(
                 BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.getLabel())));

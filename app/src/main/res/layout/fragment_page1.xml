@@ -24,11 +24,12 @@
 
     <EditText
         android:id="@+id/BasicTeamNum"
-        android:layout_width="197dp"
+        android:layout_width="205dp"
         android:layout_height="75dp"
         android:hint="@string/team_number"
         android:inputType="number"
         android:textSize="30dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +38,13 @@
 
     <EditText
         android:id="@+id/BasicRoundNum"
-        android:layout_width="91dp"
+        android:layout_width="95dp"
         android:layout_height="75dp"
         android:layout_marginBottom="208dp"
         android:hint="Round"
         android:inputType="number"
         android:textSize="30dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/BasicTeamNum"
         app:layout_constraintStart_toStartOf="@+id/BasicTeamNum"
@@ -57,6 +59,7 @@
         android:entries="@array/alliance_Colors"
         android:scrollbarSize="30dp"
         android:spinnerMode="dropdown"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
