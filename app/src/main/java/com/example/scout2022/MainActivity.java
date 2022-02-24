@@ -143,6 +143,23 @@ public class MainActivity extends AppCompatActivity {
         /**
          * Score Counter increment and decrement
          */
+        //autonomous page
+        public void decrementAutoLower (View view){
+            decrease(R.id.AutoLowerTicker, BundleValues.AutoLowerTicker, minimumBallCount);
+        }
+
+        public void incrementAutoLower (View view){
+            increase(R.id.AutoLowerTicker, BundleValues.AutoLowerTicker, maximumBallCount);
+        }
+
+        public void decrementAutoUpper (View view){
+            decrease(R.id.AutoUpperTicker, BundleValues.AutoUpperTicker, minimumBallCount);
+        }
+
+        public void incrementAutoUpper (View view){
+            increase(R.id.AutoUpperTicker, BundleValues.AutoUpperTicker, maximumBallCount);
+        }
+        //teleOp page
         public void decrementTeleOpLower (View view){
             decrease(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerTicker, minimumBallCount);
         }
