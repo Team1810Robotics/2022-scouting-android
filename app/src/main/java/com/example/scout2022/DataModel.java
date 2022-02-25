@@ -7,35 +7,22 @@ public class DataModel extends BaseDto {
      * The match number.
      *
      * @since 2019
+     * updated 2/2022
      */
     private int matchID;
-
-    /**
-     * The team number
-     *
-     * @since 2019
-     */
-
     private TeamNumbers teamID;
     private TeamColors allianceColor;
-    //private int startingBalls;
-    //private String nameOfScouter;
-    private boolean autoPassedLine;
     private int autoNumCargoLower;
-    private int autoNumCargoOuter;
-    private int autoNumCargoInner;
+    private int autoNumCargoUpper;
+    private int autoNumCargoHeld;
     private int teleopNumCargoLower;
-    private int teleopNumCargoOuter;
-    private int teleopNumCargoInner;
-    private boolean teleopCanSpinWheel;
+    private int teleopNumCargoUpper;
     private boolean teleopColorCorrect;
-    private boolean teleopTrench;
-    private boolean teleopBar;
     private boolean teleopBallPickup;
-    //private Stage teleopStageReached;
     private BarGrabPosition endgameBarGrabPosition;
     private boolean endgameWon;
 
+    //Basic Page getters and setters
     public int getMatchID() {
         return matchID;
     }
@@ -60,27 +47,7 @@ public class DataModel extends BaseDto {
         this.allianceColor = allianceColor;
     }
 
-    /*
-        public int getStartingBalls() {
-            return startingBalls;
-        }
-
-        public void setStartingBalls( int startingBalls ) {
-            this.startingBalls = startingBalls;
-        }
-
-        public String getScouterName(){return nameOfScouter;}
-
-        public void setNameOfScouter( String nameOfScouter) {this.nameOfScouter = nameOfScouter;}
-    */
-    public boolean isAutoPassedLine() {
-        return autoPassedLine;
-    }
-
-    public void setAutoPassedLine(boolean autoPassedLine) {
-        this.autoPassedLine = autoPassedLine;
-    }
-
+    //Auto Page getters and setters
     public int getAutoNumCargoLower() {
         return autoNumCargoLower;
     }
@@ -89,52 +56,35 @@ public class DataModel extends BaseDto {
         this.autoNumCargoLower = autoNumCargoLower;
     }
 
-    public int getAutoNumCargoOuter() {
-        return autoNumCargoOuter;
+    public int getAutoNumCargoUpper() {
+        return autoNumCargoUpper;
     }
 
-    public void setAutoNumCargoOuter(int autoNumCargoOuter) {
-        this.autoNumCargoOuter = autoNumCargoOuter;
+    public void setAutoNumCargoUpper(int autoNumCargoUpper) {
+        this.autoNumCargoUpper = autoNumCargoUpper;
     }
 
-    public int getAutoNumCargoInner() {
-        return autoNumCargoInner;
+    public int getAutoNumCargoHeld() {return autoNumCargoHeld; }
+
+    public void setAutoNumCargoHeld(int autoNumCargoHeld) {
+        this.autoNumCargoHeld = autoNumCargoHeld;
     }
 
-    public void setAutoNumCargoUpper(int autoNumCargoInner) {
-        this.autoNumCargoInner = autoNumCargoInner;
-    }
-
+    //TeleOp Page getters and setters
     public int getTeleopNumCargoLower() {
         return teleopNumCargoLower;
     }
 
-    public void setTeleopNumCargoUpper(int teleopNumCargoLower) {
+    public void setTeleopNumCargoLower(int teleopNumCargoLower) {
         this.teleopNumCargoLower = teleopNumCargoLower;
     }
 
-    public int getTeleopNumCargoOuter() {
-        return teleopNumCargoOuter;
+    public int getTeleopNumCargoUpper() {
+        return teleopNumCargoUpper;
     }
 
-    public void setTeleopNumCargoOuter(int teleopNumCargoOuter) {
-        this.teleopNumCargoOuter = teleopNumCargoOuter;
-    }
-
-    public int getTeleopNumCargoInner() {
-        return teleopNumCargoInner;
-    }
-
-    public void setTeleopNumCargoLower(int teleopNumCargoInner) {
-        this.teleopNumCargoInner = teleopNumCargoInner;
-    }
-
-    public boolean isTeleopCanSpinWheel() {
-        return teleopCanSpinWheel;
-    }
-
-    public void setTeleopCanSpinWheel(boolean teleopCanSpinWheel) {
-        this.teleopCanSpinWheel = teleopCanSpinWheel;
+    public void setTeleopNumCargoUpper(int teleopNumCargoUpper) {
+        this.teleopNumCargoUpper = teleopNumCargoUpper;
     }
 
     public boolean isTeleopColorCorrect() {
@@ -145,22 +95,6 @@ public class DataModel extends BaseDto {
         this.teleopColorCorrect = teleopColorCorrect;
     }
 
-    public boolean isTeleopTrenchCorrect() {
-        return teleopTrench;
-    }
-
-    public void setTeleopTrench(boolean teleopTrench) {
-        this.teleopTrench = teleopTrench;
-    }
-
-    public boolean isTeleopBarCorrect() {
-        return teleopBar;
-    }
-
-    public void setTeleopBar(boolean teleopBar) {
-        this.teleopBar = teleopBar;
-    }
-
     public boolean isTeleopBallPickupCorrect() {
         return teleopBallPickup;
     }
@@ -169,15 +103,6 @@ public class DataModel extends BaseDto {
         this.teleopBallPickup = teleopBallPickup;
     }
 
-    /*
-        public Stage getTeleopStageReached() {
-            return teleopStageReached;
-        }
-
-        public void setTeleopStageReached( Stage teleopStageReached ) {
-            this.teleopStageReached = teleopStageReached;
-        }
-    */
     public BarGrabPosition getEndgameBarGrabPosition() {
         return endgameBarGrabPosition;
     }

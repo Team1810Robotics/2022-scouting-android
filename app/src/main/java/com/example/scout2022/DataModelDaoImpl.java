@@ -42,16 +42,15 @@ public final class DataModelDaoImpl implements DataModelDao {
 
     //TODO update IDs to match current code
     private static void printDataModel(final DataModel data, final CSVPrinter csvPrinter) throws IOException {
-        csvPrinter.printRecord(data.getMatchID(), data.getTeamID() == null ? "null" : Integer.parseInt(data.getTeamID().toString()),
-                //data.getAllianceColor() == null ? "null" : data.getAllianceColor().toString(), data.getStartingBalls(),
-                //data.getScouterName() == null ? "null" : data.getScouterName(),
-                BooleanUtils.toStringTrueFalse(data.isAutoPassedLine()), data.getAutoNumCargoLower(),
-                data.getAutoNumCargoOuter(), data.getAutoNumCargoInner(), data.getTeleopNumCargoLower(),
-                data.getTeleopNumCargoOuter(), data.getTeleopNumCargoInner(),
-                BooleanUtils.toStringTrueFalse(data.isTeleopCanSpinWheel()),
+        csvPrinter.printRecord(
+                data.getMatchID(),
+                data.getTeamID() == null ? "null" : Integer.parseInt(data.getTeamID().toString()),
+                data.getAllianceColor() == null ? "null" : data.getAllianceColor().toString(),
+                data.getAutoNumCargoLower(),
+                data.getAutoNumCargoUpper(),
+                data.getTeleopNumCargoLower(),
+                data.getTeleopNumCargoUpper(),
                 BooleanUtils.toStringTrueFalse(data.isTeleopColorCorrect()),
-                BooleanUtils.toStringTrueFalse(data.isTeleopTrenchCorrect()),
-                BooleanUtils.toStringTrueFalse(data.isTeleopBarCorrect()),
                 BooleanUtils.toStringTrueFalse(data.isTeleopBallPickupCorrect()),
                 //data.getTeleopStageReached() == null ? "null" : data.getTeleopStageReached().getLabel(),
                 data.getEndgameBarGrabPosition() == null ? "null" : data.getEndgameBarGrabPosition().getLabel(),
@@ -62,24 +61,23 @@ public final class DataModelDaoImpl implements DataModelDao {
     private static DataModel readDataModel(final CSVRecord rec) {
         final DataModel data = new DataModel();
         int pos = 0;
+        //Basic
         data.setMatchID(Utils.toInt(rec.get(pos++)));
         data.setTeamID(TeamNumbers.fromValue(rec.get(pos++)));
         data.setAllianceColor(TeamColors.forLabel(rec.get(pos++)));
-        //data.setStartingBalls( Utils.toInt( rec.get( pos++ ) ) );
-        //data.setNameOfScouter( ( rec.get( pos++ ) ) );
-        data.setAutoPassedLine(BooleanUtils.toBoolean(rec.get(pos++)));
+        //Auto
         data.setAutoNumCargoLower(Utils.toInt(rec.get(pos++)));
-        data.setAutoNumCargoOuter(Utils.toInt(rec.get(pos++)));
         data.setAutoNumCargoUpper(Utils.toInt(rec.get(pos++)));
+        data.setAu
+        //TeleOp
         data.setTeleopNumCargoUpper(Utils.toInt(rec.get(pos++)));
-        data.setTeleopNumCargoOuter(Utils.toInt(rec.get(pos++)));
         data.setTeleopNumCargoLower(Utils.toInt(rec.get(pos++)));
         data.setTeleopCanSpinWheel(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopColorCorrect(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopTrench(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopBar(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopBallPickup(BooleanUtils.toBoolean(rec.get(pos++)));
-        //data.setTeleopStageReached( Stage.fromValue( rec.get( pos++ ) ) );
+        //Final
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(rec.get(pos++)));
         data.setEndgameWon(BooleanUtils.toBoolean(rec.get(pos++)));
         return data;
