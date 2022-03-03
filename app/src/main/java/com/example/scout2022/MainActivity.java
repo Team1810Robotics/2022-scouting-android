@@ -21,6 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * min and max can be adjusted to yearly rules as needed
+ */
 public class MainActivity extends AppCompatActivity {
     private int minimumBallCount = 0;
     private int maximumBallCount = 100;
@@ -78,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
             //Auto Page
             data.setAutoNumCargoUpper(bundle.getInt(BundleValues.AutoUpperTicker.toString(), 0));
             data.setAutoNumCargoLower(bundle.getInt(BundleValues.AutoLowerTicker.toString(), 0));
+            data.setAutoNumCargoHeld(bundle.getInt(BundleValues.AutoBallsHeld.toString()));
+            data.setAutoCanMove(bundle.getBoolean(BundleValues.AutoCanMove.toString()));
 
             // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
             // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
@@ -86,11 +91,12 @@ public class MainActivity extends AppCompatActivity {
             data.setTeleopColorCorrect(bundle.getBoolean(BundleValues.TeleOpColorCheck.toString(), false));
             data.setTeleopNumCargoLower(bundle.getInt(BundleValues.TeleOpLowerTicker.toString(), 0));
             data.setTeleopNumCargoUpper(bundle.getInt(BundleValues.TeleOpUpperTicker.toString(), 0));
+            data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString())));
 
             // data.setTeleopNumCargoOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
             // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
 
-            data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString())));
+            //Final
             data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
 
             //writing to the disk actually into the Documents Directory

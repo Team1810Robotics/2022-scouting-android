@@ -9,18 +9,23 @@ public class DataModel extends BaseDto {
      * @since 2019
      * updated 2/2022
      */
+    //Basic
     private int matchID;
     private TeamNumbers teamID;
     private TeamColors allianceColor;
+    //Auto
     private int autoNumCargoLower;
     private int autoNumCargoUpper;
     private int autoNumCargoHeld;
+    private boolean canMove;
+    //TeleOp
     private int teleopNumCargoLower;
     private int teleopNumCargoUpper;
     private boolean teleopColorCorrect;
-    private boolean teleopBallPickup;
     private BarGrabPosition endgameBarGrabPosition;
+    //Final
     private boolean endgameWon;
+    private String endNotes;
 
     //Basic Page getters and setters
     public int getMatchID() {
@@ -70,10 +75,14 @@ public class DataModel extends BaseDto {
         this.autoNumCargoHeld = autoNumCargoHeld;
     }
 
-    //TeleOp Page getters and setters
-    public int getTeleopNumCargoLower() {
-        return teleopNumCargoLower;
+    public boolean getAutoCanMove() {return canMove; }
+
+    public void setAutoCanMove(boolean canMove) {
+        this.canMove = canMove;
     }
+
+    //TeleOp Page getters and setters
+    public int getTeleopNumCargoLower() { return teleopNumCargoLower; }
 
     public void setTeleopNumCargoLower(int teleopNumCargoLower) {
         this.teleopNumCargoLower = teleopNumCargoLower;
@@ -94,6 +103,7 @@ public class DataModel extends BaseDto {
     public void setTeleopColorCorrect(boolean teleopColorCorrect) {
         this.teleopColorCorrect = teleopColorCorrect;
     }
+/* TODO delete with all references
 
     public boolean isTeleopBallPickupCorrect() {
         return teleopBallPickup;
@@ -102,7 +112,7 @@ public class DataModel extends BaseDto {
     public void setTeleopBallPickup(boolean teleopBallPickup) {
         this.teleopBallPickup = teleopBallPickup;
     }
-
+*/
     public BarGrabPosition getEndgameBarGrabPosition() {
         return endgameBarGrabPosition;
     }
@@ -111,11 +121,18 @@ public class DataModel extends BaseDto {
         this.endgameBarGrabPosition = endgameBarGrabPosition;
     }
 
+    //Final
     public boolean isEndgameWon() {
         return endgameWon;
     }
 
     public void setEndgameWon(boolean endgameWon) {
         this.endgameWon = endgameWon;
+    }
+
+    public String getEndNotes() {return endNotes; }
+
+    public void setEndNotes(String endNotes) {
+        this.endNotes = endNotes;
     }
 }

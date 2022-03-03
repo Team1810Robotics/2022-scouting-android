@@ -8,9 +8,9 @@ public enum BundleValues {
     TELEOP_BAR, TElEOP_BALL_PICKUP
   */
     BasicRoundNum, BasicTeamNum, BasicColorDropdown,
-    //no Startup Balls, Scouter Name, or Auto
-
-    TeleOpLowerTicker, TeleOpUpperTicker, TeleOpColorCheck, TeleOpHeightDropdown, FinalNotes, FinalWinCheck, AutoLowerTicker, AutoUpperTicker
+    AutoLowerTicker, AutoUpperTicker, AutoBallsHeld, AutoCanMove,
+    TeleOpLowerTicker, TeleOpUpperTicker, TeleOpColorCheck, TeleOpHeightDropdown,
+    FinalNotes, FinalWinCheck,
 
 
 }

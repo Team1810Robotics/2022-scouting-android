@@ -11,9 +11,10 @@ public enum HeaderEnum {
     TeleopCanChooseCorrectColor("Can Choose Correct Color"), TeleopCanTrench("Can Go Through Trench"),
     TeleopCanBar("Can Go Over bar"), TeleopCanPickupBalls("Can Pickup Balls Off Ground"), GrabBarPosition("Grab Bar Position"), Won("Won");
 */
-    MatchId("Match Id"), TeamId("Team Id"), AllianceColor("Alliance Color"), AutoCargoLower("Auto Power Cells Lower"),
-    AutoCargoOuter("Auto Power Cells Outer"), TeleopCargoLower("TeleOp Power Cells Lower"), TeleopCargoOuter("Teleop Power Cells Outer"),
-    TeleOpCanSpinWheel("Can Spin Wheel"), GrabBarPosition("Grab Bar Position"), Notes("Final Notes"), Won("Won");
+    MatchId("Match Id"), TeamId("Team Id"), AllianceColor("Alliance Color"),
+    AutoCargoLower("Auto Cargo Lower"), AutoCargoOuter("Auto Cargo Outer"), AutoCargoHeld("Cargo held at once"), AutoMoves("Can Robot Move"),
+    TeleOpCargoLower("TeleOp Cargo Lower"), TeleOpCargoOuter("TeleOp Cargo Outer"), TeleOpCanSeeColor("Can See Colors"), GrabBarPosition("Grab Bar Position"),
+    Notes("Final Notes"), Won("Won");
     private final String value;
 
     HeaderEnum(final String value) {

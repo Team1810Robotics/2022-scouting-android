@@ -48,10 +48,12 @@ public final class DataModelDaoImpl implements DataModelDao {
                 data.getAllianceColor() == null ? "null" : data.getAllianceColor().toString(),
                 data.getAutoNumCargoLower(),
                 data.getAutoNumCargoUpper(),
+                data.getAutoNumCargoHeld(),
+                data.getAutoCanMove(),
                 data.getTeleopNumCargoLower(),
                 data.getTeleopNumCargoUpper(),
                 BooleanUtils.toStringTrueFalse(data.isTeleopColorCorrect()),
-                BooleanUtils.toStringTrueFalse(data.isTeleopBallPickupCorrect()),
+                //BooleanUtils.toStringTrueFalse(data.isTeleopBallPickupCorrect()),
                 //data.getTeleopStageReached() == null ? "null" : data.getTeleopStageReached().getLabel(),
                 data.getEndgameBarGrabPosition() == null ? "null" : data.getEndgameBarGrabPosition().getLabel(),
                 BooleanUtils.toStringTrueFalse(data.isEndgameWon()));
@@ -68,18 +70,16 @@ public final class DataModelDaoImpl implements DataModelDao {
         //Auto
         data.setAutoNumCargoLower(Utils.toInt(rec.get(pos++)));
         data.setAutoNumCargoUpper(Utils.toInt(rec.get(pos++)));
-        data.setAu
+        data.setAutoNumCargoHeld(Utils.toInt(rec.get(pos++)));
+        data.setAutoCanMove(BooleanUtils.toBoolean(rec.get(pos++)));
         //TeleOp
         data.setTeleopNumCargoUpper(Utils.toInt(rec.get(pos++)));
         data.setTeleopNumCargoLower(Utils.toInt(rec.get(pos++)));
-        data.setTeleopCanSpinWheel(BooleanUtils.toBoolean(rec.get(pos++)));
         data.setTeleopColorCorrect(BooleanUtils.toBoolean(rec.get(pos++)));
-        data.setTeleopTrench(BooleanUtils.toBoolean(rec.get(pos++)));
-        data.setTeleopBar(BooleanUtils.toBoolean(rec.get(pos++)));
-        data.setTeleopBallPickup(BooleanUtils.toBoolean(rec.get(pos++)));
-        //Final
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(rec.get(pos++)));
+        //Final
         data.setEndgameWon(BooleanUtils.toBoolean(rec.get(pos++)));
+        data.setEndNotes("JustDoIt");
         return data;
     }
 
