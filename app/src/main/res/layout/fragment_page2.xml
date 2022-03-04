@@ -179,12 +179,13 @@
 />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/AutoTarmacCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:layout_marginStart="50dp"
         android:text="@android:string/yes"
+        android:onClick="AutoTarmacCheckBoxUpdate"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toBottomOf="@+id/textView" />.
 
