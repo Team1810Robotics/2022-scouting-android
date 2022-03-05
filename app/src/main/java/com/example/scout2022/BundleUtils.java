@@ -14,7 +14,7 @@ public class BundleUtils {
         dumpBundle(bundle);
         final DataModel data = new DataModel();
         data.setMatchID(bundle.getInt(BundleValues.BasicRoundNum.toString(), 0));
-        data.setTeamID(TeamNumbers.fromValue(bundle.getString((BundleValues.BasicTeamNum.toString()), TeamNumbers.TEAM_245.toString())));
+        data.setTeamID(TeamNumbers.fromValue(bundle.getString((BundleValues.BasicTeamNum.toString()), TeamNumbers.TEAM_937.toString())));
         data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(),
                 TeamColors.BLUE.toString())));
         //data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );

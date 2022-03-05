@@ -173,6 +173,8 @@
         android:hint="@string/balls_number_here"
         android:inputType="number"
         android:textSize="20sp"
+        android:text="0"
+        android:onClick="AutoBallsHeldUpdate"
         android:gravity="center"
         app:layout_constraintStart_toEndOf="@id/textView13"
         app:layout_constraintTop_toTopOf="@id/textView13"

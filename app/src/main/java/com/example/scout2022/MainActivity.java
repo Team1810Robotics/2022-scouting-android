@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -59,12 +57,17 @@ public class MainActivity extends AppCompatActivity {
         /**
          * This is a starting location for the team number autofill, please move if possible
         **/
-
-        String[] team_Numbers = getResources().getStringArray(R.array.teamNumber);
-        AutoCompleteTextView ACBasicTeamNum = findViewById(R.id.BasicTeamNum);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (this,android.R.layout.simple_list_item_1, team_Numbers);
-        ACBasicTeamNum.setAdapter(adapter);
+        /*
+        try {
+            String[] team_Numbers = getResources().getStringArray(R.array.teamNumber);
+            AutoCompleteTextView ACBasicTeamNum = findViewById(R.id.BasicTeamNum);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                    (this, android.R.layout.simple_list_item_1, team_Numbers);
+            ACBasicTeamNum.setAdapter(adapter);
+        } catch(Throwable t) {
+            t.printStackTrace();
+        }
+*/
     }
 
 
@@ -85,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Basic Page
         data.setMatchID(bundle.getInt(BundleValues.BasicRoundNum.toString(), 0));
-        data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_245.toString())));
+        data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_937.toString())));
         data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString())));
 
         // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
@@ -202,37 +205,48 @@ public class MainActivity extends AppCompatActivity {
     public void SubmitBasic(View view){
         NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
         NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
+        DropDownUpdate(R.id.BasicColorDropdown, BundleValues.BasicColorDropdown);
     }
 
 
-
-    public void BasicTeamNumUpdate(View view) {
-        NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
-    }
-    /*
-    public void BasicRoundNumUpdate(View view) {
-        NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
-    }
-    */
-
-/* TODO add dropdown updater
+/* TODO remove submit button and fix dropdowns
 
     public void BasicColorDropdownUpdate(View view) {
         TextBoxUpdate(R.id.BasicColorDropdown, BundleValues.BasicColorDropdown);
     }
+
+    public void TeleOpBarHeightUpdate(View view) {
+        DropDownUpdate(R.id.TeleOpHeightDropdown, BundleValues.TeleOpHeightDropdown);
+    }
 */
+    public void BasicTeamNumUpdate(View view) {
+    NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
+}
+
+    public void BasicRoundNumUpdate(View view) {
+        NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
+    }
+
     public void AutoTarmacCheckBoxUpdate(View view) {
         CheckBoxUpdate(R.id.AutoTarmacCheckBox, BundleValues.AutoCanMove);
+    }
+
+    public void AutoBallsHeldUpdate(View view) {
+        NumBoxUpdate(R.id.AutoBallsHeld, BundleValues.AutoBallsHeld);
     }
 
     public void TeleOpColorCheckUpdate(View view) {
         CheckBoxUpdate(R.id.TeleOpColorCheck, BundleValues.TeleOpColorCheck);
     }
 
+    public void FinalNotesUpdate(View view) {
+        TextBoxUpdate(R.id.FinalNotes, BundleValues.FinalNotes);
+    }
 
     public void FinalWinCheckUpdate(View view) {
         CheckBoxUpdate(R.id.FinalWinCheck, BundleValues.FinalWinCheck);
     }
+
 
     public void increase(int id, BundleValues bundleLocation, int limit) {
         final Intent i = getIntent();
@@ -295,6 +309,19 @@ public class MainActivity extends AppCompatActivity {
         i.putExtras(bundle);
         TextView TextViewUpdate = findViewById(id); //find textview (text input)
         String StringUpdate = TextViewUpdate.getText().toString(); //convert textview to string
+        bundle.putString(bundleLocation.toString(), StringUpdate); //update bundle value
+        i.putExtras(bundle);
+    }
+
+    private void DropDownUpdate(int id, BundleValues bundleLocation) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        i.putExtras(bundle);
+        Spinner DropdownUpdate = findViewById(id); //find textview (text input)
+        String StringUpdate = DropdownUpdate.toString(); //convert textview to string
         bundle.putString(bundleLocation.toString(), StringUpdate); //update bundle value
         i.putExtras(bundle);
     }

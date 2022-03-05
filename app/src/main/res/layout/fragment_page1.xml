@@ -23,16 +23,35 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
-    -->
-    <AutoCompleteTextView
+
+
+
+        <AutoCompleteTextView
         android:id="@+id/BasicTeamNum"
         android:layout_width="205dp"
-        android:layout_height="75dp"
-        android:hint="@string/team_number"
+        android:layout_height="wrap_content"
+        android:hint="Team Number"
         android:completionThreshold="1"
         android:inputType="number"
         android:textSize="30dp"
         android:gravity="center"
+        android:onClick="BasicTeamNumUpdate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.3"
+            />
+                -->
+    <EditText
+        android:id="@+id/BasicTeamNum"
+        android:layout_width="205dp"
+        android:layout_height="75dp"
+        android:hint="Team Number"
+        android:inputType="number"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="0"
         android:onClick="BasicTeamNumUpdate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +68,7 @@
         android:inputType="number"
         android:textSize="30dp"
         android:gravity="center"
+        android:text="0"
         android:onClick="BasicRoundNumUpdate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/BasicTeamNum"
