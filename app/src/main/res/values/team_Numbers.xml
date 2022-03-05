@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="teamNumber">
+<item>937</item>
+<item>1710</item>
+<item>1723</item>
+<item>1769</item>
+<item>1785</item>
+<item>1802</item>
+<item>1806</item>
+<item>1810</item>
+<item>1825</item>
+<item>1847</item>
+<item>1939</item>
+<item>1982</item>
+<item>1984</item>
+<item>1986</item>
+<item>1997</item>
+<item>2345</item>
+<item>2357</item>
+<item>2457</item>
+<item>2718</item>
+<item>3172</item>
+<item>3179</item>
+<item>4959</item>
+<item>5098</item>
+<item>5141</item>
+<item>5268</item>
+<item>5801</item>
+<item>6843</item>
+<item>7064</item>
+<item>7255</item>
+<item>8112</item>
+</string-array>
+</resources>

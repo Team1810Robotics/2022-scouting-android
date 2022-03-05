@@ -18,5 +18,6 @@ public class page_Basic extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_page1, container, false);
+
     }
 }

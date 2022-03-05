@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -53,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        /**
+         * This is a starting location for the team number autofill, please move if possible
+        **/
+
+        String[] team_Numbers = getResources().getStringArray(R.array.teamNumber);
+        AutoCompleteTextView ACBasicTeamNum = findViewById(R.id.BasicTeamNum);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this,android.R.layout.simple_list_item_1, team_Numbers);
+        ACBasicTeamNum.setAdapter(adapter);
     }
 
 
@@ -186,6 +198,29 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Onclick update functions
      */
+
+    public void SubmitBasic(View view){
+        NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
+        NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
+    }
+
+
+
+    public void BasicTeamNumUpdate(View view) {
+        NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
+    }
+    /*
+    public void BasicRoundNumUpdate(View view) {
+        NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
+    }
+    */
+
+/* TODO add dropdown updater
+
+    public void BasicColorDropdownUpdate(View view) {
+        TextBoxUpdate(R.id.BasicColorDropdown, BundleValues.BasicColorDropdown);
+    }
+*/
     public void AutoTarmacCheckBoxUpdate(View view) {
         CheckBoxUpdate(R.id.AutoTarmacCheckBox, BundleValues.AutoCanMove);
     }
@@ -193,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
     public void TeleOpColorCheckUpdate(View view) {
         CheckBoxUpdate(R.id.TeleOpColorCheck, BundleValues.TeleOpColorCheck);
     }
+
 
     public void FinalWinCheckUpdate(View view) {
         CheckBoxUpdate(R.id.FinalWinCheck, BundleValues.FinalWinCheck);
@@ -244,9 +280,36 @@ public class MainActivity extends AppCompatActivity {
         }
         i.putExtras(bundle);
         boolean variable;
-        CheckBox CheckboxUpdate = findViewById(id);
+        CheckBox CheckboxUpdate = findViewById(id); //find checkbox
         variable = CheckboxUpdate.isChecked() ? true : false;
-        bundle.putBoolean(bundleLocation.toString(), variable);
+        bundle.putBoolean(bundleLocation.toString(), variable); //update bundle value
+        i.putExtras(bundle);
+    }
+
+    private void TextBoxUpdate(int id, BundleValues bundleLocation) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        i.putExtras(bundle);
+        TextView TextViewUpdate = findViewById(id); //find textview (text input)
+        String StringUpdate = TextViewUpdate.getText().toString(); //convert textview to string
+        bundle.putString(bundleLocation.toString(), StringUpdate); //update bundle value
+        i.putExtras(bundle);
+    }
+
+    private void NumBoxUpdate(int id, BundleValues bundleLocation) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        i.putExtras(bundle);
+        TextView NumViewUpdate = findViewById(id); //find textview (text input)
+        String StringToIntUpdate = NumViewUpdate.getText().toString(); //convert textview to string
+        int variable =Integer.parseInt(StringToIntUpdate);
+        bundle.putInt(bundleLocation.toString(), variable); //update bundle value
         i.putExtras(bundle);
     }
  //TODO add onclick updaters for other inputs

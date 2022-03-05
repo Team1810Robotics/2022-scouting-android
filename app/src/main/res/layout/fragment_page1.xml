@@ -9,6 +9,8 @@
     tools:context=".ui.main.PlaceholderFragment">
 
 //basic Page
+
+    <!-- TODO optional: add Basic page header
     <TextView
         android:id="@+id/section_label"
         android:layout_width="wrap_content"
@@ -21,15 +23,17 @@
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
         tools:layout_constraintLeft_creator="1"
         tools:layout_constraintTop_creator="1" />
-
-    <EditText
+    -->
+    <AutoCompleteTextView
         android:id="@+id/BasicTeamNum"
         android:layout_width="205dp"
         android:layout_height="75dp"
         android:hint="@string/team_number"
+        android:completionThreshold="1"
         android:inputType="number"
         android:textSize="30dp"
         android:gravity="center"
+        android:onClick="BasicTeamNumUpdate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +49,7 @@
         android:inputType="number"
         android:textSize="30dp"
         android:gravity="center"
+        android:onClick="BasicRoundNumUpdate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/BasicTeamNum"
         app:layout_constraintStart_toStartOf="@+id/BasicTeamNum"
@@ -64,5 +69,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/BasicRoundNum" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Submit"
+        android:onClick="SubmitBasic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/BasicColorDropdown"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.scout2022;
 
+
 public enum TeamNumbers {
     TEAM_245(0, "245"), TEAM_935(1, "935"), TEAM_937(2, "937"),
     TEAM_938(3, "938"), TEAM_1160(4, "1160"), TEAM_1723(5, "1723"),
@@ -13,6 +14,7 @@ public enum TeamNumbers {
     TEAM_6026(27, "6026"), TEAM_6542(28, "6542"), TEAM_6817(29, "6817"),
     TEAM_6886(30, "6886"), TEAM_7662(31, "7662"), TEAM_8004(32, "8004"),
     TEAM_8112(33, "8112");
+
 
     private final String teamLabel;
     private final int indexTeam;
