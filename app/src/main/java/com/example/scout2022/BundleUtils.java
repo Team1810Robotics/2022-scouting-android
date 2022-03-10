@@ -8,7 +8,7 @@ public class BundleUtils {
             System.out.println(key.toString() + " = " + b.get(key.toString()));
         }
     }
-
+/*
     public static DataModel buildDataModel(final Bundle bundle) {
         System.out.println("-- Before Data Build --");
         dumpBundle(bundle);
@@ -37,7 +37,7 @@ public class BundleUtils {
         data.setTeleopNumCargoInner(bundle.getInt(BundleValues.TeleOpLowerCounter.toString(), 0));
         data.setTeleopNumCargoLower(bundle.getInt(BundleValues.TeleOpUpperCounter.toString(), 0));
 
- */
+ ///
 
         //data.setTeleopNumCargoOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
         //data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
@@ -46,7 +46,7 @@ public class BundleUtils {
         data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
         return data;
     }
-
+*/
     public static void resetBundleValues(final Bundle b) {
         for (final BundleValues val : BundleValues.values()) {
             switch (val) {

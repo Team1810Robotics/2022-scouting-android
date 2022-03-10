@@ -1,7 +1,8 @@
 package com.example.scout2022;
 
 public enum BarGrabPosition {
-    NONE(0, "None"), LEVEL(1, "Level"), HIGH(2, "High");
+    NONE(0, "Did not Climb"), Low(1, "Low"), Mid (2, "Middle"),
+    High(3, "High"), Transversal(4,"Transversal");
 
     private final String barLabel;
     private final int indexBar;

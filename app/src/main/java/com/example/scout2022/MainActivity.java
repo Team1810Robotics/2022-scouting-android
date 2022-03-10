@@ -68,37 +68,44 @@ public class MainActivity extends AppCompatActivity {
             t.printStackTrace();
         }
 */
+
     }
 
 
     //Create and save a new file
     public void FinalSave(View view) {
 
+
+
         Bundle bundle = getIntent().getExtras();
         if (bundle == null) {
             bundle = new Bundle();
         }
 
+
+
         final DataModel data = new DataModel();
 
+        DropDownUpdate(R.id.TeleOpHeightDropdown, BundleValues.TeleOpHeightDropdown);
+
         //setting final bundle value for bar grab position
-        bundle.putString(BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
+        //.putString(BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
 
         //storing the user input values into the DataModel to be used in the DAO
 
         //Basic Page
         data.setMatchID(bundle.getInt(BundleValues.BasicRoundNum.toString(), 0));
-        data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), TeamNumbers.TEAM_937.toString())));
-        data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(), TeamColors.BLUE.toString())));
+        data.setTeamID(TeamNumbers.fromValue(bundle.getString(BundleValues.BasicTeamNum.toString(), "")));
+        data.setAllianceColor(TeamColors.forLabel(bundle.getString(BundleValues.BasicColorDropdown.toString(), "")));
 
         // data.setStartingBalls( bundle.getInt( BundleValues.STARTUP_BALLS.toString(), 0 ) );
         // data.setNameOfScouter(bundle.getString(BundleValues.SCOUTER_NAME.toString(), "" ) );
 
         //Auto Page
-        data.setAutoNumCargoUpper(bundle.getInt(BundleValues.AutoUpperTicker.toString(), 0));
+       data.setAutoNumCargoUpper(bundle.getInt(BundleValues.AutoUpperTicker.toString(), 0));
         data.setAutoNumCargoLower(bundle.getInt(BundleValues.AutoLowerTicker.toString(), 0));
-        data.setAutoNumCargoHeld(bundle.getInt(BundleValues.AutoBallsHeld.toString()));
-        data.setAutoCanMove(bundle.getBoolean(BundleValues.AutoCanMove.toString()));
+        data.setAutoNumCargoHeld(bundle.getInt(BundleValues.AutoBallsHeld.toString(), 0));
+        data.setAutoCanMove(bundle.getBoolean(BundleValues.AutoCanMove.toString(), false));
 
         // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
         // data.setTeleopCanSpinWheel( bundle.getBoolean( BundleValues.TELEOP_SPIN.toString(), false ) );
@@ -107,13 +114,14 @@ public class MainActivity extends AppCompatActivity {
         data.setTeleopColorCorrect(bundle.getBoolean(BundleValues.TeleOpColorCheck.toString(), false));
         data.setTeleopNumCargoLower(bundle.getInt(BundleValues.TeleOpLowerTicker.toString(), 0));
         data.setTeleopNumCargoUpper(bundle.getInt(BundleValues.TeleOpUpperTicker.toString(), 0));
-        data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.toString())));
-
+        data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString(), "")));
+        //data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(bundle.getString(BundleValues.TeleOpHeightDropdown.toString())));
         // data.setTeleopNumCargoOuter( bundle.getInt( BundleValues.TELEOP_OUTER_BALLS.toString(), 0 ) );
         // data.setTeleopStageReached( Stage.fromIndex( bundle.getInt( BundleValues.TELEOP_STAGE_LEVEL.toString(), 0 ) ) );
 
         //Final
         data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
+        data.setEndNotes(bundle.getString(BundleValues.FinalNotes.toString(), ""));
 
         //writing to the disk actually into the Documents Directory
         try {
@@ -219,9 +227,10 @@ public class MainActivity extends AppCompatActivity {
         DropDownUpdate(R.id.TeleOpHeightDropdown, BundleValues.TeleOpHeightDropdown);
     }
 */
+
     public void BasicTeamNumUpdate(View view) {
-    NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
-}
+        NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
+    }
 
     public void BasicRoundNumUpdate(View view) {
         NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
@@ -238,7 +247,10 @@ public class MainActivity extends AppCompatActivity {
     public void TeleOpColorCheckUpdate(View view) {
         CheckBoxUpdate(R.id.TeleOpColorCheck, BundleValues.TeleOpColorCheck);
     }
-
+/*
+    Spinner TeleOpHeightDropdown = (Spinner) findViewById(R.id.TeleOpHeightDropdown);
+    TeleOpHeightDropdown.setAdapter(new ArrayAdapter<BarGrabPosition>(this, android.R.layout.TeleOpHeightDropdown, BarGrabPosition.values()));
+*/
     public void FinalNotesUpdate(View view) {
         TextBoxUpdate(R.id.FinalNotes, BundleValues.FinalNotes);
     }

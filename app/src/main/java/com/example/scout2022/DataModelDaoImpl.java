@@ -40,7 +40,6 @@ public final class DataModelDaoImpl implements DataModelDao {
         this.csvFileLocation = fileLocation;
     }
 
-    //TODO update IDs to match current code
     private static void printDataModel(final DataModel data, final CSVPrinter csvPrinter) throws IOException {
         csvPrinter.printRecord(
                 data.getMatchID(),
@@ -57,7 +56,7 @@ public final class DataModelDaoImpl implements DataModelDao {
                 //data.getTeleopStageReached() == null ? "null" : data.getTeleopStageReached().getLabel(),
                 data.getEndgameBarGrabPosition() == null ? "null" : data.getEndgameBarGrabPosition().getLabel(),
                 BooleanUtils.toStringTrueFalse(data.isEndgameWon()));
-
+                data.getEndNotes();
     }
 
     private static DataModel readDataModel(final CSVRecord rec) {
@@ -79,7 +78,7 @@ public final class DataModelDaoImpl implements DataModelDao {
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(rec.get(pos++)));
         //Final
         data.setEndgameWon(BooleanUtils.toBoolean(rec.get(pos++)));
-        data.setEndNotes("JustDoIt");
+        data.setEndNotes(rec.get(pos++));
         return data;
     }
 
