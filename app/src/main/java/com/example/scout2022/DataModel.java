@@ -1,5 +1,7 @@
 package com.example.scout2022;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 //TODO Update IDs to current code
 public class DataModel extends BaseDto {
     // Data for startup screen
@@ -16,7 +18,7 @@ public class DataModel extends BaseDto {
     //Auto
     private int autoNumCargoLower;
     private int autoNumCargoUpper;
-    private int autoNumCargoHeld;
+    private String autoNumCargoHeld;
     private boolean canMove;
     //TeleOp
     private int teleopNumCargoLower;
@@ -69,9 +71,9 @@ public class DataModel extends BaseDto {
         this.autoNumCargoUpper = autoNumCargoUpper;
     }
 
-    public int getAutoNumCargoHeld() {return autoNumCargoHeld; }
+    public String getAutoNumCargoHeld() {return autoNumCargoHeld; }
 
-    public void setAutoNumCargoHeld(int autoNumCargoHeld) {
+    public void setAutoNumCargoHeld(String autoNumCargoHeld) {
         this.autoNumCargoHeld = autoNumCargoHeld;
     }
 
@@ -134,5 +136,9 @@ public class DataModel extends BaseDto {
 
     public void setEndNotes(String endNotes) {
         this.endNotes = endNotes;
+    }
+
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
     }
 }

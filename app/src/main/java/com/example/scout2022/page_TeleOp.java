@@ -1,20 +1,28 @@
 package com.example.scout2022;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * creates page
  */
-public class page_TeleOp extends Activity {
+public class page_TeleOp extends AppCompatActivity {
     @Nullable
+    private int minimumBallCount = 0;
+    private int maximumBallCount = 100;
+    private boolean CanSeeBool = false;
+    private String BarGrabString = BarGrabPosition.NONE.toString();
+    MainActivity main = new MainActivity();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_page3);
@@ -54,61 +62,107 @@ public class page_TeleOp extends Activity {
                     }
                 });
 
+        CheckBox TeleCanSee = findViewById(R.id.TeleOpColorCheck);
 
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        try{
+            CanSeeBool = bundle.getBoolean(BundleValues.TeleOpColorCheck.toString());
+            BarGrabString = bundle.getString(BundleValues.TeleOpHeightDropdown.toString());
+            ((CheckBox) findViewById(R.id.TeleOpColorCheck)).setChecked(CanSeeBool);
+            if ( BarGrabString != null ) {
+                barHeightSpinner.setSelection( BarGrabPosition.fromValue( BarGrabString ).getIndex() );
             }
-
-/*
-   findViewById(R.id.TeleOpLowerMinus).setOnClickListener(() -> decrementTeleOpLower());
-
-   findViewById(R.id.TeleOpLowerPlus).setOnClickListener(() -> incrementTeleOpLower());
-
-   findViewById(R.id.TeleOpUpperMinus).setOnClickListener(() -> decrementTeleOpUpper());
-
-   findViewById(R.id.TeleOpUpperPlus).setOnClickListener(() -> incrementTeleOpUpper());
-*/
+        }catch(Throwable t){
+            t.printStackTrace();
+        }
+    }
+    public void TeleOpColorCheckUpdate(View view) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        i.putExtras(bundle);
+        boolean variable;
+        CheckBox lineCheckbox = findViewById(R.id.TeleOpColorCheck);
+        variable = lineCheckbox.isChecked() ? true : false;
+        bundle.putBoolean(BundleValues.TeleOpColorCheck.toString(), variable);
+        i.putExtras(bundle);
+    }
     /**
-     * Lower TeleOp Score Counter
+     *
      */
-   /* public void decrementTeleOpLower(View view) {
-        Util.decrease(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, minimumBallCount);
+
+
+    public void decrementTeleOpLower(View view) {
+        decrease(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerTicker, minimumBallCount);
     }
 
-    public void incrementTeleOpLower(View TeleOpLowerPlus) {
-        Util.increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerCounter, maximumBallCount);
+    public void incrementTeleOpLower(View view) {
+        increase(R.id.TeleOpLowerTicker, BundleValues.TeleOpLowerTicker, maximumBallCount);
     }
-*/
-
-    /**
-     * Upper TeleOp Score Counter
-     */
 
     public void decrementTeleOpUpper(View view) {
-       // Util.decrease(R.id.TeleOpUpperTicker, BundleValues.TeleOpUpperCounter, minimumBallCount);
+        decrease(R.id.TeleOpUpperTicker, BundleValues.TeleOpUpperTicker, minimumBallCount);
     }
+
     public void incrementTeleOpUpper(View view) {
-        //Util.increase(R.id.TeleOpUpperTicker, BundleValues.TeleOpUpperCounter, maximumBallCount);
-    }
-   /*
-   //TODO replace into other increase decrease
-    private void decrease(int teleOpUpperTicker, BundleValues teleOpUpperCounter, int minimumBallCount) {
+        increase(R.id.TeleOpUpperTicker, BundleValues.TeleOpUpperTicker, maximumBallCount);
     }
 
+    private void increase(int id, BundleValues bundleLocation, int limit) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
 
+        int variable = bundle.getInt(bundleLocation.toString(), 0);
+        if (variable < limit) {
+            variable++;
+            final TextView displayInteger = findViewById(id);
+            displayInteger.setText("" + variable);
 
-    private void increase(int teleOpUpperTicker, BundleValues teleOpUpperCounter, int maximumBallCount) {
+            bundle.putInt(bundleLocation.toString(), variable);
+            i.putExtras(bundle);
+        }
+
     }
-*/
-    /* TODO note to self, is using onclick easier?
-    public void TeleOpLowerDe (View view){
-    }
 
-     */
+    private void decrease(int id, BundleValues bundleLocation, int limit) {
+        final Intent i = getIntent();
+        Bundle bundle = i.getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+
+        int variable = bundle.getInt(bundleLocation.toString(), 0);
+        if (variable > limit) {
+            variable--;
+            final TextView textView = findViewById(id);
+            textView.setText("" + variable);
+
+            bundle.putInt(bundleLocation.toString(), variable);
+            i.putExtras(bundle);
+        }
+
+    }
    public void TeleOpActivityChange(View view) {
+       CheckBox TeleCanSee = findViewById(R.id.TeleOpColorCheck);
+       boolean variable;
+       variable = TeleCanSee.isChecked() ? true : false;
+
        final Intent i = new Intent(getApplicationContext(), page_Final.class);
        Bundle bundle = getIntent().getExtras();
        if (bundle == null) {
            bundle = new Bundle();
        }
+
+       bundle.putString( BundleValues.TeleOpHeightDropdown.toString(),
+               ((Spinner) findViewById( R.id.TeleOpHeightDropdown )).getSelectedItem().toString() );
+       bundle.putBoolean(BundleValues.TeleOpColorCheck.toString(), variable);
+       i.putExtras(bundle);
 
        i.putExtras(bundle);
        startActivity(i);

@@ -25,7 +25,6 @@
         android:layout_height="413dp"
         android:hint="@string/type_here"
         android:gravity="top"
-        android:onClick="FinalNotesUpdate"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

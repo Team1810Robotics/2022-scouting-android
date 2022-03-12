@@ -24,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".page_Basic"/>
+        <activity android:name=".page_Auto"/>
+        <activity android:name=".page_TeleOp"/>
+        <activity android:name=".page_Final"/>
     </application>
 
 </manifest>

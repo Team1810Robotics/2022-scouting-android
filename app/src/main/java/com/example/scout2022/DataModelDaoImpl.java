@@ -5,10 +5,6 @@ import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.lang3.BooleanUtils;
-//import org.usd232.robotics.matchscouting2020.data.AllianceColor;
-//import org.usd232.robotics.matchscouting2020.data.DataModelKey;
-//import org.usd232.robotics.matchscouting2020.data.Stage;
-//import org.usd232.robotics.matchscouting2020.data.Utils;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -18,6 +14,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+//import org.usd232.robotics.matchscouting2020.data.DataModelKey;
+//import org.usd232.robotics.matchscouting2020.data.Stage;
 
 
 /**
@@ -69,7 +68,7 @@ public final class DataModelDaoImpl implements DataModelDao {
         //Auto
         data.setAutoNumCargoLower(Utils.toInt(rec.get(pos++)));
         data.setAutoNumCargoUpper(Utils.toInt(rec.get(pos++)));
-        data.setAutoNumCargoHeld(Utils.toInt(rec.get(pos++)));
+        data.setAutoNumCargoHeld(rec.get(pos++));
         data.setAutoCanMove(BooleanUtils.toBoolean(rec.get(pos++)));
         //TeleOp
         data.setTeleopNumCargoUpper(Utils.toInt(rec.get(pos++)));
@@ -105,7 +104,7 @@ public final class DataModelDaoImpl implements DataModelDao {
 
     @Override
     public void appendDataModel(final DataModel data) throws IOException {
-        System.out.println("data equals" + data);
+        //System.out.println("data equals" + data);
         final Map<DataModelKey, DataModel> datas = readDataModels();
         final DataModelKey newKey = new DataModelKey();
         newKey.setTeamID(Integer.parseInt(data.getTeamID().getLabel()));
