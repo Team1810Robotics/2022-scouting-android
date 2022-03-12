@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -37,6 +39,40 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        final Spinner barHeightSpinner = findViewById( R.id.TeleOpHeightDropdown );
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
+                ( this, R.array.height, android.R.layout.simple_spinner_item );
+        adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
+        barHeightSpinner.setAdapter( adapter );
+
+        barHeightSpinner.setOnItemSelectedListener
+                ( new AdapterView.OnItemSelectedListener() {
+                      @Override
+                      public void onItemSelected(final AdapterView<?> parentView, final View selectedItemView, final int position, final long id) {
+                          final Intent i = getIntent();
+                          Bundle bundle = i.getExtras();
+                          if (bundle == null) {
+                              bundle = new Bundle();
+                          }
+
+                          bundle.putString(BundleValues.TeleOpHeightDropdown.toString(),
+                                  ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
+                          i.putExtras(bundle);
+                      }
+
+                      @Override
+                      public void onNothingSelected(final AdapterView<?> parentView) {
+                          final Intent i = getIntent();
+                          Bundle bundle = i.getExtras();
+                          if (bundle == null) {
+                              bundle = new Bundle();
+                          }
+
+                          bundle.putString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.getLabel());
+                          i.putExtras(bundle);
+                      }
+                  });
 
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = binding.viewPager;
@@ -213,7 +249,7 @@ public class MainActivity extends AppCompatActivity {
     public void SubmitBasic(View view){
         NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
         NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
-        DropDownUpdate(R.id.BasicColorDropdown, BundleValues.BasicColorDropdown);
+        //DropDownUpdate(R.id.BasicColorDropdown, BundleValues.BasicColorDropdown);
     }
 
 
@@ -331,10 +367,9 @@ public class MainActivity extends AppCompatActivity {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        i.putExtras(bundle);
-        Spinner DropdownUpdate = findViewById(id); //find textview (text input)
-        String StringUpdate = DropdownUpdate.toString(); //convert textview to string
-        bundle.putString(bundleLocation.toString(), StringUpdate); //update bundle value
+
+        bundle.putString( BundleValues.BasicColorDropdown.toString(),
+                ((Spinner) findViewById( R.id.BasicColorDropdown )).getSelectedItem().toString() );
         i.putExtras(bundle);
     }
 

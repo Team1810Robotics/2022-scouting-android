@@ -27,6 +27,7 @@ private Utils Util = new Utils();
         return inflater.inflate(R.layout.fragment_page3, container, false);
 
 
+
             }
 
 /*
