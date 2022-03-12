@@ -1,24 +1,9 @@
 package com.example.scout2022.ui.main;
 
-import android.content.Context;
-
-import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-
-import com.example.scout2022.page_Basic;
-import com.example.scout2022.page_Auto;
-import com.example.scout2022.page_Final;
-import com.example.scout2022.R;
-import com.example.scout2022.page_TeleOp;
-
-
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
  * one of the sections/tabs/pages.
- */
+
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
@@ -67,3 +52,4 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         return 4;
     }
 }
+ */

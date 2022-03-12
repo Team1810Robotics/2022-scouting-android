@@ -4,25 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
 import com.example.scout2022.databinding.ActivityMainBinding;
-import com.example.scout2022.ui.main.SectionsPagerAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
+
+//import com.example.scout2022.ui.main.SectionsPagerAdapter;
 
 /**
  * min and max can be adjusted to yearly rules as needed
@@ -36,59 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_main);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        final Spinner barHeightSpinner = findViewById( R.id.TeleOpHeightDropdown );
-        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
-                ( this, R.array.height, android.R.layout.simple_spinner_item );
-        adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-        barHeightSpinner.setAdapter( adapter );
-
-        barHeightSpinner.setOnItemSelectedListener
-                ( new AdapterView.OnItemSelectedListener() {
-                      @Override
-                      public void onItemSelected(final AdapterView<?> parentView, final View selectedItemView, final int position, final long id) {
-                          final Intent i = getIntent();
-                          Bundle bundle = i.getExtras();
-                          if (bundle == null) {
-                              bundle = new Bundle();
-                          }
-
-                          bundle.putString(BundleValues.TeleOpHeightDropdown.toString(),
-                                  ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
-                          i.putExtras(bundle);
-                      }
-
-                      @Override
-                      public void onNothingSelected(final AdapterView<?> parentView) {
-                          final Intent i = getIntent();
-                          Bundle bundle = i.getExtras();
-                          if (bundle == null) {
-                              bundle = new Bundle();
-                          }
-
-                          bundle.putString(BundleValues.TeleOpHeightDropdown.toString(), BarGrabPosition.NONE.getLabel());
-                          i.putExtras(bundle);
-                      }
-                  });
-
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = binding.viewPager;
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = binding.tabs;
-        tabs.setupWithViewPager(viewPager);
-        FloatingActionButton fab = binding.fab;
-
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         /**
          * This is a starting location for the team number autofill, please move if possible
@@ -388,5 +335,14 @@ public class MainActivity extends AppCompatActivity {
     }
  //TODO add onclick updaters for other inputs
 
+    public void MainActivityChange(View view) {
+        final Intent i = new Intent(getApplicationContext(), page_Basic.class);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
 
+        i.putExtras(bundle);
+        startActivity(i);
+    }
 }

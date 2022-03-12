@@ -1,25 +1,40 @@
 package com.example.scout2022;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 /**
  * creates page
  */
-public class page_Auto extends Fragment {
+public class page_Auto extends Activity {
     @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_page2, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_page2);
+
     }
 
 
+    public void AutoActivityChange(View view) {
+        final Intent i = new Intent(getApplicationContext(), page_TeleOp.class);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
 
+        i.putExtras(bundle);
+        startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        final Intent i = new Intent(getApplicationContext(), page_Basic.class);
+        Bundle bundle = getIntent().getExtras();
+        i.putExtras(bundle);
+        startActivity(i);
+    }
 }
