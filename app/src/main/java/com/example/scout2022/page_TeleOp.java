@@ -163,8 +163,6 @@ public class page_TeleOp extends AppCompatActivity {
                ((Spinner) findViewById( R.id.TeleOpHeightDropdown )).getSelectedItem().toString() );
        bundle.putBoolean(BundleValues.TeleOpColorCheck.toString(), variable);
        i.putExtras(bundle);
-
-       i.putExtras(bundle);
        startActivity(i);
    }
 

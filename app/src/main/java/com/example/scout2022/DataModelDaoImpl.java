@@ -46,8 +46,8 @@ public final class DataModelDaoImpl implements DataModelDao {
                 data.getAllianceColor() == null ? "null" : data.getAllianceColor().toString(),
                 data.getAutoNumCargoLower(),
                 data.getAutoNumCargoUpper(),
-                data.getAutoNumCargoHeld(),
-                data.getAutoCanMove(),
+                data.getAutoNumCargoHeld() == null ? "null" : data.getAutoNumCargoHeld().getLabel(),
+                BooleanUtils.toStringTrueFalse(data.isCanMove()),
                 data.getTeleopNumCargoLower(),
                 data.getTeleopNumCargoUpper(),
                 BooleanUtils.toStringTrueFalse(data.isTeleopColorCorrect()),
@@ -68,7 +68,7 @@ public final class DataModelDaoImpl implements DataModelDao {
         //Auto
         data.setAutoNumCargoLower(Utils.toInt(rec.get(pos++)));
         data.setAutoNumCargoUpper(Utils.toInt(rec.get(pos++)));
-        data.setAutoNumCargoHeld(rec.get(pos++));
+        data.setAutoNumCargoHeld(AutoCapacity.fromValue(rec.get(pos++)));
         data.setAutoCanMove(BooleanUtils.toBoolean(rec.get(pos++)));
         //TeleOp
         data.setTeleopNumCargoUpper(Utils.toInt(rec.get(pos++)));

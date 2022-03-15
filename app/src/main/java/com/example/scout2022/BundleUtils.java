@@ -51,6 +51,8 @@ public class BundleUtils {
         for (final BundleValues val : BundleValues.values()) {
             switch (val) {
                 case FinalNotes:
+                    b.putString(val.toString(), "empty");
+                    break;
                 case FinalWinCheck:
                 case TeleOpColorCheck:
                     b.putBoolean(val.toString(), false);

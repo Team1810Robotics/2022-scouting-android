@@ -91,7 +91,7 @@ public class page_Final extends AppCompatActivity {
         //Auto Page
         data.setAutoNumCargoUpper(bundle.getInt(BundleValues.AutoUpperTicker.toString(), 0));
         data.setAutoNumCargoLower(bundle.getInt(BundleValues.AutoLowerTicker.toString(), 0));
-        data.setAutoNumCargoHeld(bundle.getString(BundleValues.AutoBallsHeld.toString(), ""));
+        data.setAutoNumCargoHeld(AutoCapacity.fromValue(bundle.getString(BundleValues.AutoBallsHeld.toString(),"")));
         data.setAutoCanMove(bundle.getBoolean(BundleValues.AutoCanMove.toString(), false));
 
         // data.setAutoPassedLine( bundle.getBoolean( BundleValues.AUTO_LINE.toString(), false ) );
@@ -152,7 +152,7 @@ public class page_Final extends AppCompatActivity {
             alertDialog.show();
         }
 
-        BundleUtils.resetBundleValues(bundle);
+        //BundleUtils.resetBundleValues(bundle);
     }
 
     @Override

@@ -3,8 +3,10 @@ package com.example.scout2022;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -19,7 +21,7 @@ public class page_Auto extends AppCompatActivity {
     private int minimumBallCount = 0;
     private int maximumBallCount = 100;
     private boolean CanMoveBool = false;
-    private String AutoCapacityString = "0";
+    private String AutoCapacityString = AutoCapacity.NONE.toString();
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +29,54 @@ public class page_Auto extends AppCompatActivity {
         setContentView(R.layout.fragment_page2);
 
         CheckBox AutoCanMove = findViewById(R.id.AutoTarmacCheckBox);
-        EditText AutoCapacity = findViewById(R.id.AutoBallsHeld);
 
         final Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        try{
+
+        //CapacityDropdown
+        final Spinner capacitySpinner = findViewById(R.id.AutoBallsHeld);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
+                (this, R.array.capacity, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        capacitySpinner.setAdapter(adapter);
+
+        capacitySpinner.setOnItemSelectedListener
+                (new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(final AdapterView<?> parentView, final View selectedItemView, final int position, final long id) {
+                        final Intent i = getIntent();
+                        Bundle bundle = i.getExtras();
+                        if (bundle == null) {
+                            bundle = new Bundle();
+                        }
+
+                        bundle.putString(BundleValues.AutoBallsHeld.toString(),
+                                ((Spinner) findViewById(R.id.AutoBallsHeld)).getSelectedItem().toString());
+                        i.putExtras(bundle);
+                    }
+
+                    @Override
+                    public void onNothingSelected(final AdapterView<?> parentView) {
+                        final Intent i = getIntent();
+                        Bundle bundle = i.getExtras();
+                        if (bundle == null) {
+                            bundle = new Bundle();
+                        }
+
+                        bundle.putString(BundleValues.AutoBallsHeld.toString(), AutoCapacity.NONE.getLabel());
+                        i.putExtras(bundle);
+                    }
+                });
+        try {
             CanMoveBool = bundle.getBoolean(BundleValues.AutoCanMove.toString());
             AutoCapacityString = bundle.getString(BundleValues.AutoBallsHeld.toString());
-            ((CheckBox) findViewById(R.id.AutoTarmacCheckBox)).setChecked(CanMoveBool);
-            ((TextView) findViewById(R.id.AutoBallsHeld)).setText(AutoCapacityString);
-        }catch(Throwable t){
+            if (AutoCapacityString != null) {
+                capacitySpinner.setSelection(AutoCapacity.fromValue(AutoCapacityString).getIndex());
+                ((CheckBox) findViewById(R.id.AutoTarmacCheckBox)).setChecked(CanMoveBool);
+            }
+        } catch (Throwable t) {
             t.printStackTrace();
         }
-
-
     }
 
     public void decrementAutoLower(View view) {
@@ -63,9 +99,6 @@ public class page_Auto extends AppCompatActivity {
         CheckBox AutoCanMove = findViewById(R.id.AutoTarmacCheckBox);
         boolean variable;
         variable = AutoCanMove.isChecked() ? true : false;
-        EditText AutoCapacity = findViewById(R.id.AutoBallsHeld);
-        String AutoCapacityString = AutoCapacity.getText().toString();
-
 
         final Intent i = new Intent(getApplicationContext(), page_TeleOp.class);
         Bundle bundle = getIntent().getExtras();
@@ -73,9 +106,9 @@ public class page_Auto extends AppCompatActivity {
             bundle = new Bundle();
         }
         bundle.putBoolean(BundleValues.AutoCanMove.toString(), variable);
+        bundle.putString( BundleValues.AutoBallsHeld.toString(),
+                ((Spinner) findViewById( R.id.AutoBallsHeld )).getSelectedItem().toString() );
         i.putExtras(bundle);
-        bundle.putString(BundleValues.AutoBallsHeld.toString(),
-                ((EditText) findViewById(R.id.AutoBallsHeld)).getText().toString());
         startActivity(i);
     }
 

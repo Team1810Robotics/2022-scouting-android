@@ -164,14 +164,13 @@
         app:layout_constraintStart_toStartOf="@id/textView3"
         app:layout_constraintTop_toBottomOf="@id/textView" />
 
-    <EditText
+    <Spinner
         android:id="@+id/AutoBallsHeld"
         android:layout_width="165dp"
         android:layout_height="48dp"
         android:layout_marginTop="15dp"
         android:layout_marginStart="25dp"
-        android:hint="@string/balls_number_here"
-        android:inputType="number"
+        android:spinnerMode="dropdown"
         android:textSize="20sp"
         android:gravity="center"
         app:layout_constraintStart_toEndOf="@id/textView13"

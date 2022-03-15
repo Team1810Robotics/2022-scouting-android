@@ -6,7 +6,7 @@ package com.example.scout2022;
  * @author Michael Sheehan
  */
 public enum TeamColors {
-    NONE_SELECTED(0,"None Selected"), RED(1, "Red"), BLUE(2, "Blue");
+    NONE_SELECTED(0,"Choose Team Color"), RED(1, "Red"), BLUE(2, "Blue");
 
     private final String label;
     private final int index;
