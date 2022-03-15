@@ -103,16 +103,7 @@ public class DataModel extends BaseDto {
     public void setTeleopColorCorrect(boolean teleopColorCorrect) {
         this.teleopColorCorrect = teleopColorCorrect;
     }
-/* TODO delete with all references
 
-    public boolean isTeleopBallPickupCorrect() {
-        return teleopBallPickup;
-    }
-
-    public void setTeleopBallPickup(boolean teleopBallPickup) {
-        this.teleopBallPickup = teleopBallPickup;
-    }
-*/
     public BarGrabPosition getEndgameBarGrabPosition() {
         return endgameBarGrabPosition;
     }
@@ -135,10 +126,4 @@ public class DataModel extends BaseDto {
     public void setEndNotes(String endNotes) {
         this.endNotes = endNotes;
     }
-
-    /*
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
-    */
 }

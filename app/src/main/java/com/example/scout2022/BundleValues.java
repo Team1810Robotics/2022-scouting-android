@@ -10,7 +10,7 @@ public enum BundleValues {
     BasicRoundNum, BasicTeamNum, BasicColorDropdown,
     AutoLowerTicker, AutoUpperTicker, AutoBallsHeld, AutoCanMove,
     TeleOpLowerTicker, TeleOpUpperTicker, TeleOpColorCheck, TeleOpHeightDropdown,
-    FinalNotes, FinalWinCheck,
+    FinalNoteText, FinalWinCheck,
 
 
 }

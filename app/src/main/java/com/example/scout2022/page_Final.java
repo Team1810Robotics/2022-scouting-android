@@ -33,7 +33,7 @@ public class page_Final extends AppCompatActivity {
         Bundle bundle = i.getExtras();
         try{
             WinBool = bundle.getBoolean(BundleValues.FinalWinCheck.toString());
-            NotesString = bundle.getString(BundleValues.FinalNotes.toString());
+            NotesString = bundle.getString(BundleValues.FinalNoteText.toString());
             ((CheckBox) findViewById(R.id.FinalWinCheck)).setChecked(WinBool);
         }catch(Throwable t){
             t.printStackTrace();
@@ -70,13 +70,10 @@ public class page_Final extends AppCompatActivity {
         }
 
         bundle.putBoolean(BundleValues.FinalWinCheck.toString(), variable);
-        bundle.putString(BundleValues.FinalNotes.toString(),
+        bundle.putString(BundleValues.FinalNoteText.toString(),
                 ((EditText) findViewById(R.id.FinalNotes)).getText().toString());
 
-        final DataModel data = new DataModel();
-
-        //setting final bundle value for bar grab position
-        //.putString(BundleValues.TeleOpHeightDropdown.toString(), ((Spinner) findViewById(R.id.TeleOpHeightDropdown)).getSelectedItem().toString());
+            final DataModel data = new DataModel();
 
         //storing the user input values into the DataModel to be used in the DAO
 
@@ -108,7 +105,7 @@ public class page_Final extends AppCompatActivity {
 
         //Final
         data.setEndgameWon(bundle.getBoolean(BundleValues.FinalWinCheck.toString(), false));
-        data.setEndNotes(bundle.getString(BundleValues.FinalNotes.toString(), ""));
+        data.setEndNotes(bundle.getString(BundleValues.FinalNoteText.toString(), ""));
 
         //writing to the disk actually into the Documents Directory
         try {
@@ -152,7 +149,7 @@ public class page_Final extends AppCompatActivity {
             alertDialog.show();
         }
 
-        //BundleUtils.resetBundleValues(bundle);
+        BundleUtils.resetBundleValues(bundle);
     }
 
     @Override
