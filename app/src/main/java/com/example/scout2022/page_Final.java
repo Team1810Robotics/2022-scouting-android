@@ -31,11 +31,11 @@ public class page_Final extends AppCompatActivity {
 
         final Intent i = getIntent();
         Bundle bundle = i.getExtras();
-        try{
+        try {
             WinBool = bundle.getBoolean(BundleValues.FinalWinCheck.toString());
             NotesString = bundle.getString(BundleValues.FinalNoteText.toString());
             ((CheckBox) findViewById(R.id.FinalWinCheck)).setChecked(WinBool);
-        }catch(Throwable t){
+        } catch(Throwable t) {
             t.printStackTrace();
         }
     }

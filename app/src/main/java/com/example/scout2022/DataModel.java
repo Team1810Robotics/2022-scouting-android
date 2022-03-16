@@ -25,7 +25,9 @@ public class DataModel extends BaseDto {
     private BarGrabPosition endgameBarGrabPosition;
     //Final
     private boolean endgameWon;
-    private String endNotes;
+    private String endNotes = "";
+
+
 
     //Basic Page getters and setters
     public int getMatchID() {

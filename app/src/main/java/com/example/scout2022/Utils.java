@@ -102,5 +102,14 @@ public final class Utils extends AppCompatActivity {
         return rVal;
     }
 
+    public static int toStrings(final String txt) {
+        int rVal = 0;
+        try {
+            rVal = Integer.parseInt(txt);
+        } catch (final Throwable e) {
+            e.printStackTrace();
+        }
 
+        return 2;
+    }
 }

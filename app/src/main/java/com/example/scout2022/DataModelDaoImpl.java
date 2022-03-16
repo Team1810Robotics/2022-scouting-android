@@ -28,6 +28,7 @@ public final class DataModelDaoImpl implements DataModelDao {
     private static final CSVFormat csvFormat
             = CSVFormat.DEFAULT.withHeader(HeaderEnum.class).withTrim().withIgnoreEmptyLines();
     private final File csvFileLocation;
+    private static byte byteArray[];
 
     /**
      * Constructor.
@@ -77,7 +78,13 @@ public final class DataModelDaoImpl implements DataModelDao {
         data.setEndgameBarGrabPosition(BarGrabPosition.fromValue(rec.get(pos++)));
         //Final
         data.setEndgameWon(BooleanUtils.toBoolean(rec.get(pos++)));
-        data.setEndNotes(rec.get(pos++));
+        //try {
+            data.setEndNotes(rec.get(pos++));
+        /*} catch (UnsupportedEncodingException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }*/
+
         return data;
     }
 

@@ -3,7 +3,7 @@
     <string-array name="height">
         <item>Did Not Climb</item>
         <item>Low</item>
-        <item>Mid</item>
+        <item>Middle</item>
         <item>High</item>
         <item>Transversal</item>
     </string-array>
