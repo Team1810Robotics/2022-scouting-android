@@ -1,6 +1,5 @@
 package com.example.scout2022;
 
-//TODO Update IDs to current code
 public class DataModel extends BaseDto {
     // Data for startup screen
     /**

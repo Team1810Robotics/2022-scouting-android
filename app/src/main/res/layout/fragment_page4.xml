@@ -23,7 +23,7 @@
         android:id="@+id/FinalNotes"
         android:layout_width="379dp"
         android:layout_height="413dp"
-        android:hint="@string/type_here"
+        android:hint="Notes is incompatible with this version of the app (you may type here but no notes will save)"
         android:gravity="top"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -12,11 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-/*
-protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_teleop);
- */
 /**
  * creates page
  */
@@ -26,12 +22,25 @@ public class page_Basic extends AppCompatActivity {
     private int BasicRoundInt = 0;
     private String BasicColorString = TeamColors.NONE_SELECTED.toString();
 
-
     @Nullable
     MainActivity main = new MainActivity();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_page1);
+        //Team Number
+        final String[] team_Numbers = getResources().getStringArray(R.array.teamNumber);
+
+        /*
+        ArrayAdapter<String> adapter = new ArrayAdapter<TeamNumbers>(this, android.R.layout.simple_dropdown_item_1line, team_Numbers);
+        ACBasicTeamNum.setAdapter(adapter);
+
+
+         */
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, team_Numbers);
+        AutoCompleteTextView ACBasicTeamNum = (AutoCompleteTextView)
+                findViewById(R.id.BasicTeamNum);
+        ACBasicTeamNum.setAdapter(adapter1);
         //Color dropdown
         final Spinner colorSpinner = findViewById( R.id.BasicColorDropdown );
         colorSpinner.setOnItemSelectedListener
@@ -82,24 +91,11 @@ public class page_Basic extends AppCompatActivity {
       }
     }
 
-/*
-    private void BasicTeamNumUpdate(View view) {
-        main.NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
-    }
-
-    private void BasicRoundNumUpdate(View view) {
-        main.NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
-    }
-*/
-
     public void BasicActivityChange(View view) {
         EditText TeamNum = findViewById(R.id.BasicTeamNum);
         String TeamNumString = TeamNum.getText().toString();
         EditText RoundNum = findViewById(R.id.BasicRoundNum);
         String RoundString = RoundNum.toString();
-
-        //main.NumBoxUpdate(R.id.BasicTeamNum, BundleValues.BasicTeamNum);
-      //  main.NumBoxUpdate(R.id.BasicRoundNum, BundleValues.BasicRoundNum);
 
         final Intent i = new Intent(getApplicationContext(), page_Auto.class);
        Bundle bundle = getIntent().getExtras();

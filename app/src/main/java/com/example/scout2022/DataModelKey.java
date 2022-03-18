@@ -1,5 +1,4 @@
 package com.example.scout2022;
-//TODO update IDs to match current code
 
 /**
  * Data model key - i.e. what makes a data record unique.

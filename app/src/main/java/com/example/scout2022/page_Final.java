@@ -113,7 +113,7 @@ public class page_Final extends AppCompatActivity {
 
             dir.setWritable(true, false);
             dir.setReadable(true, false);
-            //TODO test app on tablet with granted permission in android settings to access files
+
             if (!dir.exists() && !dir.mkdirs()) {
                 throw new IOException("Could not create directory '" + dir + "'.");
             }
@@ -150,6 +150,7 @@ public class page_Final extends AppCompatActivity {
         }
 
         BundleUtils.resetBundleValues(bundle);
+
     }
 
     @Override
