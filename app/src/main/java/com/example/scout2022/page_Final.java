@@ -14,11 +14,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+
 /**
  * creates page
  */
 public class page_Final extends AppCompatActivity {
-    private static final String uniqueID = UUID.randomUUID().toString(); //creates unique ID for each save file
+    private String uniqueID = UUID.randomUUID().toString(); //creates unique ID for each save file
     MainActivity main = new MainActivity();
     private String NotesString = "";
     private Boolean WinBool = false;
@@ -57,7 +58,7 @@ public class page_Final extends AppCompatActivity {
     }
     //Create and save a new file
     public void FinalSave(View view) {
-
+        uniqueID = UUID.randomUUID().toString();  //reset uniqueID
         EditText FinalNotes = findViewById(R.id.FinalNotes);
         String NotesString = FinalNotes.getText().toString();
         CheckBox Win = findViewById(R.id.FinalWinCheck);
